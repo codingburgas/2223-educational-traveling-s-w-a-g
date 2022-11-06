@@ -10,8 +10,8 @@ int main()
     Texture2D menu;
     menu = LoadTexture("../assets/menus/main_menu_light.png");
 
-    menu.width *= 0.53;
-    menu.height *= 0.53;
+    menu.width *= 0.61;
+    menu.height *= 0.61;
 
 
     while (!WindowShouldClose())
