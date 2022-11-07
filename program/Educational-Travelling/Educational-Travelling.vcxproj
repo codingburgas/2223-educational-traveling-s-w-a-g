@@ -139,11 +139,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Albania.cpp" />
+    <ClCompile Include="Bulgaria.cpp" />
+    <ClCompile Include="Greece.cpp" />
+    <ClCompile Include="Hungary.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
+    <ClCompile Include="Moldova.cpp" />
+    <ClCompile Include="Romania.cpp" />
+    <ClCompile Include="Serbia.cpp" />
+    <ClCompile Include="Turkey.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Albania.h" />
+    <ClInclude Include="Bulgaria.h" />
+    <ClInclude Include="Greece.h" />
+    <ClInclude Include="Hungary.h" />
     <ClInclude Include="map.h" />
+    <ClInclude Include="Moldova.h" />
+    <ClInclude Include="Romania.h" />
+    <ClInclude Include="Serbia.h" />
+    <ClInclude Include="Turkey.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
