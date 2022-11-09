@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "map.h"
 #include <string>
+
 using namespace std;
 
 int main()
@@ -37,10 +38,7 @@ int main()
         BeginDrawing();
 
             ClearBackground(Color{ 124, 164, 200 });
-
             DrawTexture(menu, 0, (SCREEN_HEIGHT - menu.height) / 2, WHITE);
-            DrawText(to_string(mouse.x).c_str(), 50, 650, 20, RED);
-            DrawText(to_string(mouse.y).c_str(), 50, 700, 20, RED);
 
         EndDrawing();
     }

@@ -9,20 +9,21 @@
 #include "Serbia.h"
 #include "Turkey.h"
 #include <string>
+#include <iostream>
+#include <fstream>
 
-void funkciq()
+using namespace std;
+
+Rectangle convertStringToRect(string str)
 {
-    while (!WindowShouldClose())
+    float arr[4];
+    for (size_t i = 0; i < 4; i++)
     {
-        BeginDrawing();
-
-        ClearBackground(RAYWHITE);
-        DrawText("pojrepojre", 20, 20, 30, GRAY);
-
-        EndDrawing();
+        arr[i] = stof(str.substr(0, str.find(' ')));
+        str.erase(0, str.find(" ") + 1);
     }
+    return Rectangle{ arr[0], arr[1], arr[2], arr[3] };
 }
-
 
 void drawMap()
 {
@@ -39,16 +40,18 @@ void drawMap()
     float timer = 0.0f;
     float frameWidth = float(map.width / 4);
 
-    float coords[8][4] = { {250, 350, 150, 100}, {450, 410, 310, 120}, {450, 100, 250, 260}, {70, 85, 250, 110}, 
-                        {700, 550, 90, 65}, {345, 630, 95, 150}, {240, 630, 73, 60}, {740, 90, 90, 60} };
+    fstream file;
+
+    string maskFileNames[8] = {"rs_mask.txt", "bg_mask.txt", "ro_mask.txt", "hu_mask.txt", "tr_mask.txt", "gr_mask.txt", "al_mask.txt", "md_mask.txt"};
+
+
+    int rectCount[8] = { 1, 28, 1, 1, 1, 1, 1, 1 };
 
     void (*quests[8])() = { serbiaQuest, bulgariaQuest, romaniaQuest, hungaryQuest, 
                             turkeyQuest, greeceQuest, albaniaQuest, moldovaQuest };
 
     while (!WindowShouldClose())
     {
-        SetMouseCursor(0);
-
         Vector2 mouse = GetMousePosition();
 
         timer += GetFrameTime();
@@ -70,19 +73,25 @@ void drawMap()
 
         for (int i = 0; i < 8; i++)
         {
-            if (CheckCollisionPointRec(mouse, { coords[i][0], coords[i][1], coords[i][2], coords[i][3] }))
+            file.open("../assets/country masks/" + maskFileNames[i], ios::in);
+
+            if (file.is_open())
             {
-                SetMouseCursor(4);
-                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-                    (*quests[i])();
-                break;
+                for (int j = 1; j < rectCount[i]+1; j++)
+                {
+                    string rectStr;
+                    getline(file, rectStr);
+                    if (CheckCollisionPointRec(mouse, convertStringToRect(rectStr)))//bgMask[i]
+                    {
+                        SetMouseCursor(4);
+                        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+                            (*quests[i])();
+                        break;
+                    }
+                }
             }
+            file.close();
         }
-
-        //DrawText(std::to_string(mouse.x).c_str(), 50, 650, 20, RED);
-        //DrawText(std::to_string(mouse.y).c_str(), 50, 700, 20, RED);
-        
-
         EndDrawing();
     }
 }
