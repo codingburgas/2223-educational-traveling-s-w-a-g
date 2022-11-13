@@ -1,5 +1,5 @@
 <p align = "center">
-  <img width = 650px src="https://cdn.discordapp.com/attachments/941026316482936902/1038181976999473273/logo.png"/>
+  <img width = 700px src="https://cdn.discordapp.com/attachments/941026316482936902/1038181976999473273/logo.png"/>
 </p>
 
 <br>
@@ -18,7 +18,7 @@ The main task of the project was to create a game which is about travelling in E
  <p align="left"> 
   <a href="https://www.cplusplus.com/"><img src="https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" alt="C++"/></a>
   <a href="https://visualstudio.microsoft.com/"><img src="https://img.icons8.com/fluency/48/000000/visual-studio.png" alt="Visual Studio 2019"/></a>
-  <a href="https://medibangpaint.com/en/"><img src="https://cdn.discordapp.com/attachments/941026316482936902/1038187561488752700/icons8-medibang-paint-48.png" alt = "MediBang_Paint"/></a>
+  <a href="https://medibangpaint.com/en/"><img width  = 40px src="https://cdn.discordapp.com/attachments/941026316482936902/1041430019123195984/lo.png" alt = "MediBang_Paint"/></a>
   <a href="https://www.microsoft.com/en-ww/microsoft-365/word"><img src="https://img.icons8.com/fluency/48/000000/microsoft-word-2019.png" alt="MS Word logo" width=48px /></a>
   <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
   <a href="https://www.microsoft.com/en-us/microsoft-365/excel"><img src="https://img.icons8.com/fluency/48/000000/microsoft-excel-2019.png" alt="MS Excel logo"/></a>
@@ -27,8 +27,8 @@ The main task of the project was to create a game which is about travelling in E
  </p> 
  
 ## 🗎 Documents
-* <a href="">Documentation
-* <a href="">Presentation
+* <a href="https://codingburgas-my.sharepoint.com/:w:/g/personal/kkdinev20_codingburgas_bg/EVYGtjNzha9NjNyJcLZAeKIB05IqPCDb115yIOJkAuXIzw?e=p3vB4z">Documentation
+* <a href="https://codingburgas-my.sharepoint.com/:p:/g/personal/kkdinev20_codingburgas_bg/EaK0f38HPA9DkSlJujfvxzwBnqN1rQxxLxqZVqlJi0Ympg?e=mk5guZ">Presentation
 * <a href="">QA Documentation 
  
 ## 🎬 Demo of the project
