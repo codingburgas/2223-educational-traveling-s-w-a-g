@@ -6,4 +6,6 @@
 #define SCREEN_WIDTH 924
 #define SCREEN_TITLE "Balkan Adventure"
 
+using namespace std;
+
 void drawMap();

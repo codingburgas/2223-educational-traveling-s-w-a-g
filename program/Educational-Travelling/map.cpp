@@ -14,6 +14,11 @@
 
 using namespace std;
 
+struct COUNTRY_DATA {
+    string fileName;
+    int rectCount;
+};
+
 Rectangle convertStringToRect(string str)
 {
     float arr[4];
@@ -42,13 +47,14 @@ void drawMap()
 
     fstream file;
 
-    string maskFileNames[8] = {"rs_mask.txt", "bg_mask.txt", "ro_mask.txt", "hu_mask.txt", "tr_mask.txt", "gr_mask.txt", "al_mask.txt", "md_mask.txt"};
-
-
-    int rectCount[8] = { 1, 28, 1, 1, 1, 1, 1, 1 };
+    COUNTRY_DATA countries[8] = { {"rs_mask.txt", 57}, {"bg_mask.txt", 28}, {"ro_mask.txt", 64}, {"hu_mask.txt", 40}, 
+                                  {"tr_mask.txt", 25}, {"gr_mask.txt", 60}, {"al_mask.txt", 27}, {"md_mask.txt", 36} };
 
     void (*quests[8])() = { serbiaQuest, bulgariaQuest, romaniaQuest, hungaryQuest, 
                             turkeyQuest, greeceQuest, albaniaQuest, moldovaQuest };
+
+    int i = 0;
+    float arr[4] = { 0, 0, 0 ,0 };
 
     while (!WindowShouldClose())
     {
@@ -64,24 +70,17 @@ void drawMap()
 
         frameCounter = frameCounter % 3;
 
-        BeginDrawing();
-
-        ClearBackground(Color{ 23, 21, 21 });
-        DrawTextureRec(map, 
-                       Rectangle{ frameWidth * frameCounter, 0, frameWidth, float(map.height) },
-                       Vector2{0, 0}, RAYWHITE);
-
         for (int i = 0; i < 8; i++)
         {
-            file.open("../assets/country masks/" + maskFileNames[i], ios::in);
+            file.open("../assets/country masks/" + countries[i].fileName, ios::in);
 
             if (file.is_open())
             {
-                for (int j = 1; j < rectCount[i]+1; j++)
+                for (int j = 1; j < countries[i].rectCount + 1; j++)
                 {
                     string rectStr;
                     getline(file, rectStr);
-                    if (CheckCollisionPointRec(mouse, convertStringToRect(rectStr)))//bgMask[i]
+                    if (CheckCollisionPointRec(mouse, convertStringToRect(rectStr)))
                     {
                         SetMouseCursor(4);
                         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
@@ -92,6 +91,14 @@ void drawMap()
             }
             file.close();
         }
+
+        BeginDrawing();
+
+            ClearBackground(Color{ 23, 21, 21 });
+            DrawTextureRec(map, 
+                           Rectangle{ frameWidth * frameCounter, 0, frameWidth, float(map.height) },
+                           Vector2{0, 0}, RAYWHITE);
+
         EndDrawing();
     }
 }
