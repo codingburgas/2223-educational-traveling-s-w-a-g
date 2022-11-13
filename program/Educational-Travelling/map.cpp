@@ -53,11 +53,9 @@ void drawMap()
     void (*quests[8])() = { serbiaQuest, bulgariaQuest, romaniaQuest, hungaryQuest, 
                             turkeyQuest, greeceQuest, albaniaQuest, moldovaQuest };
 
-    int i = 0;
-    float arr[4] = { 0, 0, 0 ,0 };
-
     while (!WindowShouldClose())
     {
+        bool hover = 0;
         Vector2 mouse = GetMousePosition();
 
         timer += GetFrameTime();
@@ -82,7 +80,7 @@ void drawMap()
                     getline(file, rectStr);
                     if (CheckCollisionPointRec(mouse, convertStringToRect(rectStr)))
                     {
-                        SetMouseCursor(4);
+                        hover = 1;
                         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
                             (*quests[i])();
                         break;
@@ -91,6 +89,11 @@ void drawMap()
             }
             file.close();
         }
+
+        if (hover)
+            SetMouseCursor(4);
+        else
+            SetMouseCursor(0);
 
         BeginDrawing();
 
