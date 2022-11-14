@@ -1,5 +1,5 @@
 <p align = "center">
-  <img width = 700px src="https://cdn.discordapp.com/attachments/941026316482936902/1038181976999473273/logo.png"/>
+  <img width = 750px src="https://cdn.discordapp.com/attachments/941026316482936902/1038181976999473273/logo.png"/>
 </p>
 
 <br>
@@ -34,7 +34,7 @@ The main task of the project was to create a game which is about travelling in E
 ## 🎬 Demo of the project
 
 <p align="center">
-
+<a><img  src="https://cdn.discordapp.com/attachments/1034376363009908766/1041782955057610782/unknown.png" alt="C++"/></a>
 </p> 
  
 ## ⚙ Installation
