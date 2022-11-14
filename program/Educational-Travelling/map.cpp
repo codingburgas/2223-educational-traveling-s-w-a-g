@@ -70,7 +70,7 @@ void drawMap()
 
         for (int i = 0; i < 8; i++)
         {
-            file.open("../assets/country masks/" + countries[i].fileName, ios::in);
+            file.open("../assets/data/country masks/" + countries[i].fileName, ios::in);
 
             if (file.is_open())
             {

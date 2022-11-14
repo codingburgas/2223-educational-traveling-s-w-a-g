@@ -9,3 +9,4 @@
 using namespace std;
 
 void drawMap();
+void drawSettingsMenu();

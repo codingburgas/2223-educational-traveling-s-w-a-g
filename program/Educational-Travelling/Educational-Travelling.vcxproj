@@ -148,6 +148,7 @@
     <ClCompile Include="Moldova.cpp" />
     <ClCompile Include="Romania.cpp" />
     <ClCompile Include="Serbia.cpp" />
+    <ClCompile Include="settings.cpp" />
     <ClCompile Include="Turkey.cpp" />
   </ItemGroup>
   <ItemGroup>
