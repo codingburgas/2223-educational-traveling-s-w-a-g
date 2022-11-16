@@ -32,18 +32,10 @@ void drawSettingsMenu()
 			if (character == "female")
 			{
 				frameNum = theme == "light" ? 0 : 1;
-				/*if (theme == "light")
-					frameNum = 0;
-				else if (theme == "dark")
-					frameNum = 1;*/
 			}
 			if (character == "male")
 			{
 				frameNum = theme == "light" ? 2 : 3;
-				/*if (theme == "light")
-					frameNum = 2;
-				else if (theme == "dark")
-					frameNum = 3;*/
 			}
 
 		}
@@ -58,22 +50,11 @@ void drawSettingsMenu()
 				{
 					character = "female";
 					frameNum = theme == "light" ? 0 : 1;
-
-					/*if (theme == "dark")
-						frameNum = 1;
-
-					else if (theme == "light")
-						frameNum = 0;*/
 				}
 				else if (character == "female")
 				{
 					character = "male";
 					frameNum = theme == "light" ? 2 : 3;
-					/*if (theme == "dark")
-						frameNum = 3;
-
-					else if (theme == "light")
-						frameNum = 2;*/
 				}
 			}
 
@@ -83,10 +64,6 @@ void drawSettingsMenu()
 				SetMouseCursor(4);
 				theme = "dark";
 				frameNum = character == "female" ? 1 : 3;
-				/*if (character == "female")
-					frameNum = 1;
-				else if (character == "male")
-					frameNum = 3;*/
 			}
 
 			if (CheckCollisionPointRec(mouse, { 596, 479, 297, 102 }) and IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
@@ -94,11 +71,6 @@ void drawSettingsMenu()
 				SetMouseCursor(4);
 				theme = "light";
 				frameNum = character == "female" ? 0 : 2;
-				/*if (character == "female")
-					frameNum = 0;
-				else if (character == "male")
-					frameNum = 2;*/
-
 			}
 			file << character + "\n" + theme;
 		}

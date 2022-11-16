@@ -48,7 +48,7 @@ int main()
         if (IsMouseButtonUp(MOUSE_BUTTON_LEFT) && isStartPressed)
         {
             drawMap();
-            break;
+            isStartPressed = 0;
         }
             
         if (CheckCollisionPointRec(mouse, { 212, yPos[1], 507, 96 }) and IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
