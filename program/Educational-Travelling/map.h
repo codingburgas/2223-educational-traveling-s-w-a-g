@@ -4,7 +4,7 @@
 
 #define SCREEN_HEIGHT 828
 #define SCREEN_WIDTH 924
-#define SCREEN_TITLE "Balkan.exe"
+#define SCREEN_TITLE "Balkan.X"
 
 using namespace std;
 

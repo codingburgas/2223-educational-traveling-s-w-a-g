@@ -23,6 +23,8 @@ int main()
     fstream file;
     string theme;
 
+    //bool isWindowClosed = 0;
+
     while (!WindowShouldClose())
     {
 
@@ -44,8 +46,11 @@ int main()
             isStartPressed = 1;
 
         if (IsMouseButtonUp(MOUSE_BUTTON_LEFT) && isStartPressed)
+        {
             drawMap();
-
+            break;
+        }
+            
         if (CheckCollisionPointRec(mouse, { 212, yPos[1], 507, 96 }) and IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
             drawSettingsMenu();
 

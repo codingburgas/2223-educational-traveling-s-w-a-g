@@ -99,7 +99,7 @@ void drawMap()
 
             ClearBackground(Color{ 23, 21, 21 });
             DrawTextureRec(map, 
-                           Rectangle{ frameWidth * frameCounter, 0, frameWidth, float(map.height) },
+                           Rectangle{ float(map.width / 4) * frameCounter, 0, float(map.width / 4), float(map.height) },
                            Vector2{0, 0}, RAYWHITE);
 
         EndDrawing();
