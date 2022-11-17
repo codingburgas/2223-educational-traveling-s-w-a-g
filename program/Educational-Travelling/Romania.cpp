@@ -71,11 +71,9 @@ void drawLossPrompt(int *promptChoice)
 
 }
 
-void drawWinPrompt()
+void drawWinPrompt(const char* message[3])
 {
     Font font = LoadFont("../assets/fonts/pixelplay.tff");
-
-    const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest."};
 
     bool isBackPressed = 0;
 
@@ -239,9 +237,10 @@ void romaniaQuest()
             }
         }   
 
-        if (gameTime >= 7.0f and loss == 0)
+        if (gameTime >= 30.0f and loss == 0)
         {
-            drawWinPrompt();
+            const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest." };
+            drawWinPrompt(message);
             drawMap();
             break;
         }

@@ -10,3 +10,6 @@ using namespace std;
 
 void drawMap();
 void drawSettingsMenu();
+
+void drawLossPrompt(int* promptChoice);
+void drawWinPrompt(const char* message[3]);
