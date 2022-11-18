@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Albania.cpp" />
     <ClCompile Include="Bulgaria.cpp" />
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="Greece.cpp" />
     <ClCompile Include="Hungary.cpp" />
     <ClCompile Include="main.cpp" />
