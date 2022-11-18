@@ -139,8 +139,6 @@ void greeceQuest()
                 break;
             }
 
-            DrawText(to_string(gameTime).c_str(), 20, 20, 20, WHITE);
-
             EndDrawing();
         }
     }

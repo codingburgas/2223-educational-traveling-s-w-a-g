@@ -8,7 +8,7 @@ using namespace std;
 
 void drawLossPrompt(int *promptChoice)
 {
-    Font font = LoadFont("../assets/fonts/pixelplay.tff");
+    Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
     bool backButtonPress = 0;
 
@@ -73,7 +73,7 @@ void drawLossPrompt(int *promptChoice)
 
 void drawWinPrompt(const char* message[3])
 {
-    Font font = LoadFont("../assets/fonts/pixelplay.tff");
+    Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
     bool isBackPressed = 0;
 
