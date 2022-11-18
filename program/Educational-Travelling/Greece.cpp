@@ -24,8 +24,8 @@ void greeceQuest()
 
     Texture2D plate = LoadTexture("../assets/quests/Greece/plate.png");
 
-    background.width *= 1.68;
-    background.height *= 1.68;
+    background.width *= 1.00;
+    background.height *= 1.22;
 
     player.width *= 0.5;
     player.height *= 0.5;
@@ -90,14 +90,14 @@ void greeceQuest()
             {
                 ClearBackground(RAYWHITE);
 
-                DrawTexture(background, -620, 0, WHITE);
+                DrawTexture(background, 0, 0, WHITE);
             }
 
             if (timer < 1.0f)
                 DrawTexture(plate, plateXPos, plateYPos, WHITE);
             else if (plateYPos <= 828)
             {
-                if (CheckCollisionRecs({ playerXPos, 600, float(player.width),float(player.height) },
+                if (CheckCollisionRecs({ playerXPos, 650, float(player.width),float(player.height) },
                     { plateXPos + 35, plateYPos, float(plate.width) - 60, float(plate.height) }))
                 {
                     loss = 1;
@@ -110,9 +110,9 @@ void greeceQuest()
             if (loss == 0)
             {
                 if (IsKeyDown(KEY_LEFT) or IsKeyDown(KEY_RIGHT))
-                    DrawTexture(walkRight ? walkR : walkL, playerXPos, 600, WHITE);
+                    DrawTexture(walkRight ? walkR : walkL, playerXPos, 650, WHITE);
                 else
-                    DrawTexture(player, playerXPos, 600, WHITE);
+                    DrawTexture(player, playerXPos, 650, WHITE);
             }
 
             if (loss == 1)
@@ -131,7 +131,7 @@ void greeceQuest()
                 }
             }
 
-            if (gameTime >= 7.0f and loss == 0)
+            if (gameTime >= 30.0f and loss == 0)
             {
                 const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
                 drawWinPrompt(message);
