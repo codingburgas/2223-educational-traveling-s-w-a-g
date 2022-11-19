@@ -8,13 +8,13 @@ using namespace std;
 
 void greeceQuest()
 {
-    fstream file;
+    fstream settings;
     string character;
 
-    file.open("../assets/data/settings.txt", ios::in);
-    if (file.is_open())
-        getline(file, character);
-    file.close();
+    settings.open("../assets/data/settings.txt", ios::in);
+    if (settings.is_open())
+        getline(settings, character);
+    settings.close();
 
     Texture2D background = LoadTexture("../assets/quests/Greece/bar.png");
 
@@ -131,7 +131,7 @@ void greeceQuest()
                 }
             }
 
-            if (gameTime >= 5.0f and loss == 0)
+            if (gameTime >= 30.0f and loss == 0)
             {
                 const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
                 drawWinPrompt(message);

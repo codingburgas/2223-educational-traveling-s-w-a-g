@@ -35,29 +35,34 @@ void drawMap()
 {
     SetMouseCursor(0);
 
-    Texture2D map = LoadTexture("../assets/maps/map_frames.png");
-
     SetTargetFPS(60);
-
-    map.height *= 1.5;
-    map.width *= 1.5;
-
-    int frameCounter = 0;
-    float timer = 0.0f;
-    float frameWidth = float(map.width / 4);
-
-    fstream mask;
-    fstream progress;
 
     COUNTRY_DATA countries[8] = { {"rs", 57, serbiaQuest}, {"bg", 28, bulgariaQuest},
                                   {"ro", 64, romaniaQuest}, {"hu", 40, hungaryQuest},
                                   {"tr", 25, turkeyQuest}, {"gr", 60, greeceQuest},
                                   {"al", 27, albaniaQuest}, {"md", 36, moldovaQuest} };
 
-    progress.open("../assets/data/progress.txt", ios::in);
+    Texture2D mapFrames[4] = { LoadTexture("../assets/maps/frame_1.png"), LoadTexture("../assets/maps/frame_2.png"),
+                               LoadTexture("../assets/maps/frame_3.png"), LoadTexture("../assets/maps/frame_4.png") };
+
+    for (int i = 0; i < 4; i++)
+    {
+        mapFrames[i].height *= 1.5;
+        mapFrames[i].width *= 1.5;
+    }
+
+    fstream mask;
+    fstream progress;
+
     string visited;
+
+    progress.open("../assets/data/progress.txt", ios::in);
+   
     if (progress.is_open())
         getline(progress, visited);
+
+    int frameCounter = 0;
+    float timer = 0.0f;
 
     while (!WindowShouldClose())
     {
@@ -104,9 +109,7 @@ void drawMap()
         BeginDrawing();
 
             ClearBackground(Color{ 23, 21, 21 });
-            DrawTextureRec(map, 
-                           Rectangle{ float(map.width / 4) * frameCounter, 0, float(map.width / 4), float(map.height) },
-                           Vector2{0, 0}, RAYWHITE);
+            DrawTexture(mapFrames[frameCounter], 0, 0, WHITE);
 
         EndDrawing();
     }
