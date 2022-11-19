@@ -6,6 +6,7 @@
 int albaniaQuest()
 {
     Texture2D background = LoadTexture("../assets/quests/Albania/Albania_Background.png");
+    Color color = WHITE;
 
     background.height *= 1.5;
     background.width *= 1.5;
@@ -15,7 +16,7 @@ int albaniaQuest()
         BeginDrawing();
 
         int promptChoice = 0;
-        ComingSoonPrompt(background, &promptChoice);
+        ComingSoonPrompt(background, &promptChoice, color);
 
         drawMap();
 

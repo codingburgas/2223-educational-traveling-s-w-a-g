@@ -114,7 +114,7 @@ void drawWinPrompt(const char* message[3], int *promptChoice)
     }
 }
 
-void ComingSoonPrompt(Texture2D background, int* promptChoice)
+void ComingSoonPrompt(Texture2D background, int* promptChoice, Color color)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
@@ -129,13 +129,13 @@ void ComingSoonPrompt(Texture2D background, int* promptChoice)
 
         const char* message = "Comming soon...";
 
-        DrawTextEx(font, message, { (SCREEN_WIDTH - MeasureTextEx(font, message, 30, 5).x) / 2, 200 }, 30, 5, WHITE);
+        DrawTextEx(font, message, { (SCREEN_WIDTH - MeasureTextEx(font, message, 30, 5).x) / 2, 200 }, 30, 5, color);
 
-        DrawRectangleLinesEx({ (SCREEN_WIDTH - 250) / 2, 350, 250, 75 }, 6, WHITE);
+        DrawRectangleLinesEx({ (SCREEN_WIDTH - 250) / 2, 350, 250, 75 }, 6, color);
         DrawTextEx(font, "Back to map",
             { (250 - MeasureTextEx(font, "Back to map", 25, 5).x) / 2 + (SCREEN_WIDTH - 250) / 2,
               (75 - MeasureTextEx(font, "Back to map", 25, 5).y) / 2 + 350 },
-            25, 5, WHITE);
+            25, 5, color);
 
         if (CheckCollisionPointRec(GetMousePosition(), { (SCREEN_WIDTH - 250) / 2, 350, 250, 75 }))
         {
