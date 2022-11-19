@@ -43,6 +43,8 @@ void romaniaQuest()
 
     bool walkRight = 0;
     bool loss = 0;
+
+    bool started = false;
     //bool isWindowClosed = 0;
 
     while (!WindowShouldClose())
@@ -81,6 +83,13 @@ void romaniaQuest()
         }
 
         BeginDrawing();
+
+        if (started == false)
+        {
+            const char* message[3] = { "You get lost in a forest", "during a full moon...", "Something is moving in the shadows..." };
+            drawEnterPrompt(message);
+            started = true;
+        }
 
         if (loss == 0)
         {
