@@ -8,13 +8,13 @@ using namespace std;
 
 void turkeyQuest()
 {
-    fstream file;
+    fstream settings;
     string character;
 
-    file.open("../assets/data/settings.txt", ios::in);
-    if (file.is_open())
-        getline(file, character);
-    file.close();
+    settings.open("../assets/data/settings.txt", ios::in);
+    if (settings.is_open())
+        getline(settings, character);
+    settings.close();
 
     Texture2D background = LoadTexture("../assets/quests/Turkey/arabian_nights_background.png");
 
@@ -159,6 +159,7 @@ void turkeyQuest()
             {
                 const char* message[3] = { "You've successfully survived", "the arabian nights event.", "You have woken up in your room in Istanbul." };
                 drawWinPrompt(message);
+                markCountryAsVisited(4);
                 drawMap();
                 break;
             }

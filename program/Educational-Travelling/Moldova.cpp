@@ -1,6 +1,8 @@
 #include "raylib.h"
 #include "map.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -16,7 +18,7 @@ void moldovaQuest()
 
     const char* newLines[8] = { "", "most popular wines...", "It tastes so good you give it a 9 !!", "2019... It's pretty fine - '8' you say.", "it tastes amazing!!You give it a 10!!", "wants to thank you for your kindness.", "", "" };
     float newXPos;
-    int newLineLetter = 0;
+    int newLineLetterIndex = 0;
     string newLine = "";
 
     SetTargetFPS(30);
@@ -31,11 +33,9 @@ void moldovaQuest()
         text += message[index][letter];
         if (letter >= strlen(message[index]) and index > 0)
         {
-            newLine += newLines[index][newLineLetter];
-            newLineLetter++;
+            newLine += newLines[index][newLineLetterIndex];
+            newLineLetterIndex++;
         }
-
-
 
         BeginDrawing();
         ClearBackground(BLACK);
@@ -73,10 +73,12 @@ void moldovaQuest()
                       (75 - MeasureTextEx(font, "Back to map", 25, 5).y) / 2 + 500 },
                     25, 5, BLACK);
                 if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                {
+                    markCountryAsVisited(7);
                     break;
+                }
             }
         }
-
 
         EndDrawing();
 
@@ -85,7 +87,7 @@ void moldovaQuest()
         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) and index < 7 and CheckCollisionPointRec(GetMousePosition(), { 628, 624, 175, 75 }))
         {
             index++;
-            newLineLetter = 0;
+            newLineLetterIndex = 0;
             letter = 0;
             text = "";
             newLine = "";

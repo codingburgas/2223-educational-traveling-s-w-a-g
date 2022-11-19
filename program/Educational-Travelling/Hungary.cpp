@@ -1,6 +1,8 @@
 #include "raylib.h"
 #include "map.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -73,7 +75,11 @@ void hungaryQuest()
                       (75 - MeasureTextEx(font, "Back to map", 25, 5).y) / 2 + 500 },
                     25, 5, BLACK);
                 if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                {
+                    markCountryAsVisited(3);
                     break;
+                }
+                    
             }
         }
 

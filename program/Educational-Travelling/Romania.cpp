@@ -6,19 +6,17 @@
 
 using namespace std;
 
-
-
 void romaniaQuest()
 {
-    fstream file;
+    fstream settings;
     string character;
 
-    file.open("../assets/data/settings.txt", ios::in);
-    if (file.is_open())
-        getline(file, character);
-    file.close();
+    settings.open("../assets/data/settings.txt", ios::in);
+    if (settings.is_open())
+        getline(settings, character);
+    settings.close();
 
-    Texture2D roBg = LoadTexture("../assets/quests/Romania/ro_bg.png");
+    Texture2D background = LoadTexture("../assets/quests/Romania/ro_bg.png");
 
     Texture2D player = LoadTexture(("../assets/characters/" + character + ".png").c_str());
     Texture2D walkR = LoadTexture(("../assets/characters/" + character + "_walk_right.png").c_str());
@@ -27,8 +25,8 @@ void romaniaQuest()
     Texture2D vampire = LoadTexture("../assets/quests/Romania/vampire.png");
     Texture2D shadow = LoadTexture("../assets/quests/Romania/shadow.png");
 
-    roBg.width *= 1.68;
-    roBg.height *= 1.68;
+    background.width *= 1.68;
+    background.height *= 1.68;
 
     player.width *= 0.5;
     player.height *= 0.5;
@@ -94,7 +92,7 @@ void romaniaQuest()
         {
             ClearBackground(RAYWHITE);
 
-            DrawTexture(roBg, -620, 0, WHITE);
+            DrawTexture(background, -620, 0, WHITE);
         }
 
         if (timer < 1.0f)
@@ -139,6 +137,7 @@ void romaniaQuest()
         {
             const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest." };
             drawWinPrompt(message);
+            markCountryAsVisited(2);
             drawMap();
             break;
         }

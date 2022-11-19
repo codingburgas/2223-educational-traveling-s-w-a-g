@@ -15,8 +15,9 @@
 using namespace std;
 
 struct COUNTRY_DATA {
-    string fileName;
+    string code;
     int rectCount;
+    void (*quest)();
 };
 
 Rectangle convertStringToRect(string str)
@@ -45,13 +46,18 @@ void drawMap()
     float timer = 0.0f;
     float frameWidth = float(map.width / 4);
 
-    fstream file;
+    fstream mask;
+    fstream progress;
 
-    COUNTRY_DATA countries[8] = { {"rs_mask.txt", 57}, {"bg_mask.txt", 28}, {"ro_mask.txt", 64}, {"hu_mask.txt", 40}, 
-                                  {"tr_mask.txt", 25}, {"gr_mask.txt", 60}, {"al_mask.txt", 27}, {"md_mask.txt", 36} };
+    COUNTRY_DATA countries[8] = { {"rs", 57, serbiaQuest}, {"bg", 28, bulgariaQuest},
+                                  {"ro", 64, romaniaQuest}, {"hu", 40, hungaryQuest},
+                                  {"tr", 25, turkeyQuest}, {"gr", 60, greeceQuest},
+                                  {"al", 27, albaniaQuest}, {"md", 36, moldovaQuest} };
 
-    void (*quests[8])() = { serbiaQuest, bulgariaQuest, romaniaQuest, hungaryQuest, 
-                            turkeyQuest, greeceQuest, albaniaQuest, moldovaQuest };
+    progress.open("../assets/data/progress.txt", ios::in);
+    string visited;
+    if (progress.is_open())
+        getline(progress, visited);
 
     while (!WindowShouldClose())
     {
@@ -70,24 +76,24 @@ void drawMap()
 
         for (int i = 0; i < 8; i++)
         {
-            file.open("../assets/data/country masks/" + countries[i].fileName, ios::in);
+            mask.open("../assets/data/country masks/" + countries[i].code + "_mask.txt", ios::in);
 
-            if (file.is_open())
+            if (mask.is_open())
             {
                 for (int j = 1; j < countries[i].rectCount + 1; j++)
                 {
                     string rectStr;
-                    getline(file, rectStr);
-                    if (CheckCollisionPointRec(mouse, convertStringToRect(rectStr)))
+                    getline(mask, rectStr);
+                    if (CheckCollisionPointRec(mouse, convertStringToRect(rectStr)) and visited[i] == '0')
                     {
                         hover = 1;
                         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-                            (*quests[i])();
+                            countries[i].quest();
                         break;
                     }
                 }
             }
-            file.close();
+            mask.close();
         }
 
         if (hover)

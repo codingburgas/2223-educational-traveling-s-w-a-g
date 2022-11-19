@@ -13,3 +13,4 @@ void drawSettingsMenu();
 
 void drawLossPrompt(int* promptChoice);
 void drawWinPrompt(const char* message[3]);
+void markCountryAsVisited(int index); 

@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 void drawLossPrompt(int* promptChoice)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
@@ -109,4 +108,21 @@ void drawWinPrompt(const char* message[3])
         }
         EndDrawing();
     }
+}
+
+void markCountryAsVisited(int index)
+{
+    fstream progress;
+    string visited;
+
+    progress.open("../assets/data/progress.txt", ios::in);
+    if (progress.is_open())
+        getline(progress, visited);
+    progress.close();
+    visited[index] = '1';
+
+    progress.open("../assets/data/progress.txt", ios::out);
+    if (progress.is_open())
+        progress << visited;
+    progress.close();
 }
