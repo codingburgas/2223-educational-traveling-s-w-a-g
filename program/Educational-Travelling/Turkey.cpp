@@ -1,20 +1,13 @@
 #include "raylib.h"
 #include "map.h"
 #include <iostream>
-#include <string>
 #include <fstream>
 
 using namespace std;
 
 void turkeyQuest()
 {
-    fstream settings;
-    string character;
-
-    settings.open("../assets/data/settings.txt", ios::in);
-    if (settings.is_open())
-        getline(settings, character);
-    settings.close();
+    string character = getCharacterFromSettings();
 
     Texture2D background = LoadTexture("../assets/quests/Turkey/arabian_nights_background.png");
 

@@ -6,7 +6,8 @@
 #define SCREEN_WIDTH 924
 #define SCREEN_TITLE "Balkan.X"
 
-using namespace std;
+#include <string>
+using std::string;
 
 void drawMap();
 void drawSettingsMenu();
@@ -14,3 +15,4 @@ void drawSettingsMenu();
 void drawLossPrompt(int* promptChoice);
 void drawWinPrompt(const char* message[3]);
 void markCountryAsVisited(int index); 
+string getCharacterFromSettings();

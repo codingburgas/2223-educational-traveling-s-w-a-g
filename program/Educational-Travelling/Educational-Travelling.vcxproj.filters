@@ -24,9 +24,6 @@
     <ClCompile Include="Bulgaria.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hungary.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Romania.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,13 +39,13 @@
     <ClCompile Include="Albania.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Moldova.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="checkpoints.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,28 +53,10 @@
     <ClInclude Include="map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bulgaria.h">
+    <ClInclude Include="checkpoints.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Romania.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Serbia.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hungary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Greece.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Turkey.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Moldova.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Albania.h">
+    <ClInclude Include="quests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -12,7 +12,7 @@ void drawSettingsMenu()
 	settingsMenu.width *= 1.21;
 	settingsMenu.height *= 1.21;
 
-	fstream file;
+	fstream settings;
 
 	int frameNum = 0;
 
@@ -21,12 +21,12 @@ void drawSettingsMenu()
 		SetMouseCursor(0);
 		Vector2 mouse = GetMousePosition();
 
-		file.open("../assets/data/settings.txt", ios::in);
+		settings.open("../assets/data/settings.txt", ios::in);
 		string character, theme;
-		if (file.is_open())
+		if (settings.is_open())
 		{
-			getline(file, character);
-			getline(file, theme);
+			getline(settings, character);
+			getline(settings, theme);
 
 
 			if (character == "female")
@@ -39,10 +39,10 @@ void drawSettingsMenu()
 			}
 
 		}
-		file.close();
+		settings.close();
 
-		file.open("../assets/data/settings.txt", ios::out);
-		if (file.is_open())
+		settings.open("../assets/data/settings.txt", ios::out);
+		if (settings.is_open())
 		{
 			if (CheckCollisionPointRec(mouse, { 391, 580, 202, 119 }) and IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
@@ -72,9 +72,9 @@ void drawSettingsMenu()
 				theme = "light";
 				frameNum = character == "female" ? 0 : 2;
 			}
-			file << character + "\n" + theme;
+			settings << character + "\n" + theme;
 		}
-		file.close();
+		settings.close();
 
 		BeginDrawing();
 

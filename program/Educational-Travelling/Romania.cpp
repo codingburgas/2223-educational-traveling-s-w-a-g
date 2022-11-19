@@ -8,13 +8,7 @@ using namespace std;
 
 void romaniaQuest()
 {
-    fstream settings;
-    string character;
-
-    settings.open("../assets/data/settings.txt", ios::in);
-    if (settings.is_open())
-        getline(settings, character);
-    settings.close();
+    string character = getCharacterFromSettings();
 
     Texture2D background = LoadTexture("../assets/quests/Romania/ro_bg.png");
 

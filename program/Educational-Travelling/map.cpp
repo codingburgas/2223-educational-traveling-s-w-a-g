@@ -1,13 +1,7 @@
 #include "raylib.h"
 #include "map.h"
-#include "Albania.h"
-#include "Bulgaria.h"
-#include "Greece.h"
-#include "Hungary.h"
-#include "Moldova.h"
-#include "Romania.h"
-#include "Serbia.h"
-#include "Turkey.h"
+#include "quests.h"
+#include "checkpoints.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -38,9 +32,9 @@ void drawMap()
     SetTargetFPS(60);
 
     COUNTRY_DATA countries[8] = { {"rs", 57, serbiaQuest}, {"bg", 28, bulgariaQuest},
-                                  {"ro", 64, romaniaQuest}, {"hu", 40, hungaryQuest},
+                                  {"ro", 64, romaniaQuest}, {"hu", 40, hungaryCheckpoint},
                                   {"tr", 25, turkeyQuest}, {"gr", 60, greeceQuest},
-                                  {"al", 27, albaniaQuest}, {"md", 36, moldovaQuest} };
+                                  {"al", 27, albaniaQuest}, {"md", 36, moldovaCheckpoint} };
 
     Texture2D mapFrames[4] = { LoadTexture("../assets/maps/frame_1.png"), LoadTexture("../assets/maps/frame_2.png"),
                                LoadTexture("../assets/maps/frame_3.png"), LoadTexture("../assets/maps/frame_4.png") };

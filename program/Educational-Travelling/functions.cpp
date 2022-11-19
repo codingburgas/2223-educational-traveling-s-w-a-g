@@ -126,3 +126,16 @@ void markCountryAsVisited(int index)
         progress << visited;
     progress.close();
 }
+
+string getCharacterFromSettings()
+{
+    fstream settings;
+    string character;
+
+    settings.open("../assets/data/settings.txt", ios::in);
+    if (settings.is_open())
+        getline(settings, character);
+    settings.close();
+
+    return character;
+}

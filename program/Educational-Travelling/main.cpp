@@ -20,7 +20,7 @@ int main()
     float yPos[3] = {308, 445, 577};
     bool isStartPressed = 0; 
 
-    fstream file;
+    fstream settings;
     string theme;
 
     //bool isWindowClosed = 0;
@@ -54,17 +54,17 @@ int main()
         if (CheckCollisionPointRec(mouse, { 212, yPos[1], 507, 96 }) and IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
             drawSettingsMenu();
 
-        file.open("../assets/data/settings.txt", ios::in);
-        if (file.is_open())
+        settings.open("../assets/data/settings.txt", ios::in);
+        if (settings.is_open())
         {
             int i = 0;
             while (i < 2)
             {
-                getline(file, theme);
+                getline(settings, theme);
                 i++;
             }
         }
-        file.close();
+        settings.close();
 
         if(CheckCollisionPointRec(mouse, { 212, yPos[2], 507, 96 }) and IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
             break;
