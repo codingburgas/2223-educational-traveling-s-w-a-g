@@ -131,10 +131,11 @@ void greeceQuest()
                 }
             }
 
-            if (gameTime >= 30.0f and loss == 0)
+            if (gameTime >= 5.0f and loss == 0)
             {
                 const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
                 drawWinPrompt(message);
+                markCountryAsVisited(5);
                 drawMap();
                 break;
             }
