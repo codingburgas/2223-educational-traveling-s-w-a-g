@@ -26,11 +26,6 @@ The main task of the project was to create a game which is about travelling in E
   <a href=https://github.com/"><img src="https://cdn.discordapp.com/attachments/941026316482936902/1038187562189193326/icons8-github-48.png" alt="Github"/></a>
  </p> 
  
-## 🗎 Documents
-* <a href="https://codingburgas-my.sharepoint.com/:w:/g/personal/kkdinev20_codingburgas_bg/EVYGtjNzha9NjNyJcLZAeKIB05IqPCDb115yIOJkAuXIzw?e=p3vB4z">Documentation
-* <a href="https://codingburgas-my.sharepoint.com/:p:/g/personal/kkdinev20_codingburgas_bg/EaK0f38HPA9DkSlJujfvxzwBnqN1rQxxLxqZVqlJi0Ympg?e=mk5guZ">Presentation
-* <a href="">QA Documentation 
- 
 ## 🎬 Demo of the project
 
 <p align="center">
