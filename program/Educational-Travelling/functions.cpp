@@ -110,6 +110,45 @@ void drawWinPrompt(const char* message[3])
     }
 }
 
+void drawEnterPrompt(const char* message[3])
+{
+    Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
+
+    bool isBackPressed = 0;
+
+    while (!WindowShouldClose())
+    {
+        BeginDrawing();
+
+        ClearBackground(BLACK);
+
+        DrawTextEx(font, message[0], { (SCREEN_WIDTH - MeasureTextEx(font, message[0], 30, 5).x) / 2, 200 }, 30, 5, WHITE);
+        DrawTextEx(font, message[1], { (SCREEN_WIDTH - MeasureTextEx(font, message[1], 30, 5).x) / 2, 235 }, 30, 5, WHITE);
+        DrawTextEx(font, message[2], { (SCREEN_WIDTH - MeasureTextEx(font, message[2], 30, 5).x) / 2, 270 }, 30, 5, WHITE);
+
+        DrawRectangleLinesEx({ (SCREEN_WIDTH - 250) / 2, 350, 250, 75 }, 6, WHITE);
+        DrawTextEx(font, "Proceed...",
+            { (250 - MeasureTextEx(font, "Proceed...", 25, 5).x) / 2 + (SCREEN_WIDTH - 250) / 2,
+              (75 - MeasureTextEx(font, "Proceed...", 25, 5).y) / 2 + 350 },
+            25, 5, WHITE);
+
+        if (CheckCollisionPointRec(GetMousePosition(), { (SCREEN_WIDTH - 250) / 2, 350, 250, 75 }))
+        {
+            DrawRectangleRec({ (SCREEN_WIDTH - 250) / 2, 350, 250, 75 }, WHITE);
+            DrawTextEx(font, "Proceed...",
+                { (250 - MeasureTextEx(font, "Proceed...", 25, 5).x) / 2 + (SCREEN_WIDTH - 250) / 2,
+                  (75 - MeasureTextEx(font, "Proceed...", 25, 5).y) / 2 + 350 },
+                25, 5, BLACK);
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+                isBackPressed = 1;
+
+            if (isBackPressed and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
+                break;
+        }
+        EndDrawing();
+    }
+}
+
 void markCountryAsVisited(int index)
 {
     fstream progress;
@@ -139,3 +178,4 @@ string getCharacterFromSettings()
 
     return character;
 }
+

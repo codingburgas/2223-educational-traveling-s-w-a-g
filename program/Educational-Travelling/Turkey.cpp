@@ -52,6 +52,8 @@ void turkeyQuest()
     bool walkRight = 0;
     bool loss = 0;
 
+    bool started = false;
+
     while (!WindowShouldClose())
     {
         timer += GetFrameTime();
@@ -110,6 +112,13 @@ void turkeyQuest()
             }
 
             BeginDrawing();
+
+            if (started == false)
+            {
+                const char* message[3] = { "You smoke nargile in a club...", "You end up smoking too much...", "You end up passing out..." };
+                drawEnterPrompt(message);
+                started = true;
+            }
 
             if (loss == 0)
             {
