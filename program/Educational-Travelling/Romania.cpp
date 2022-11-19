@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void romaniaQuest()
+int romaniaQuest()
 {
     string character = getCharacterFromSettings();
 
@@ -87,7 +87,8 @@ void romaniaQuest()
         if (started == false)
         {
             const char* message[3] = { "You get lost in a forest", "during a full moon...", "Something is moving in the shadows..." };
-            drawEnterPrompt(message);
+            if (drawEnterPrompt(message) == 1)
+                break;
             started = true;
         }
 
@@ -134,17 +135,26 @@ void romaniaQuest()
                 drawMap();
                 break;
             }
+            if (promptChoice == 0)
+                break;
         }   
 
         if (gameTime >= 30.0f and loss == 0)
         {
-            const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest." };
-            drawWinPrompt(message);
             markCountryAsVisited(2);
-            drawMap();
-            break;
+            int promptChoice = 0;
+            const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest." };
+            drawWinPrompt(message, &promptChoice);
+            if (promptChoice == 1)
+            {
+                drawMap();
+                break;
+            }
+            else if (promptChoice == 0)
+                break;
         }
 
         EndDrawing();
     }
+    return 1;
 }

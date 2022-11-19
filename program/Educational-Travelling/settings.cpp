@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void drawSettingsMenu()
+int drawSettingsMenu()
 {
 	Texture2D settingsMenu = LoadTexture("../assets/menus/settings_menu.png");
 
@@ -86,4 +86,5 @@ void drawSettingsMenu()
 					WHITE);
 		EndDrawing();
 	}
+	return 1;
 }

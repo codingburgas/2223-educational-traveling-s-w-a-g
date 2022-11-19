@@ -1,6 +1,6 @@
 #include "raylib.h"
 
-void bulgariaQuest()
+int bulgariaQuest()
 {
     while (!WindowShouldClose())
     {
@@ -11,4 +11,5 @@ void bulgariaQuest()
 
         EndDrawing();
     }
+    return 1;
 }

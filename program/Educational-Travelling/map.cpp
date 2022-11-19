@@ -11,7 +11,7 @@ using namespace std;
 struct COUNTRY_DATA {
     string code;
     int rectCount;
-    void (*quest)();
+    int (*quest)();
 };
 
 Rectangle convertStringToRect(string str)
@@ -25,7 +25,7 @@ Rectangle convertStringToRect(string str)
     return Rectangle{ arr[0], arr[1], arr[2], arr[3] };
 }
 
-void drawMap()
+int drawMap()
 {
     SetMouseCursor(0);
 
@@ -58,6 +58,9 @@ void drawMap()
     int frameCounter = 0;
     float timer = 0.0f;
 
+    bool breakInner = 0;
+    bool breakOuter = 0;
+
     while (!WindowShouldClose())
     {
         bool hover = 0;
@@ -87,13 +90,25 @@ void drawMap()
                     {
                         hover = 1;
                         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-                            countries[i].quest();
+                        {
+                            if (countries[i].quest() == 1)
+                            {
+                                breakInner = 1;
+                            }
+                        }   
                         break;
                     }
                 }
             }
             mask.close();
+            if (breakInner)
+            {
+                breakOuter = 1;
+                break;
+            }
         }
+        if (breakOuter)
+            break;
 
         if (hover)
             SetMouseCursor(4);
@@ -107,4 +122,5 @@ void drawMap()
 
         EndDrawing();
     }
+    return 1;
 }

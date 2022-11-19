@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void greeceQuest()
+int greeceQuest()
 {
     string character = getCharacterFromSettings();
 
@@ -85,7 +85,8 @@ void greeceQuest()
             if (started == false)
             {
                 const char* message[3] = { "You go to a bar in Athens...", "The other people look very excited...", "A sirtaki event starts..." };
-                drawEnterPrompt(message);
+                if (drawEnterPrompt(message) == 1)
+                    break;
                 started = true;
             }
 
@@ -132,18 +133,27 @@ void greeceQuest()
                     drawMap();
                     break;
                 }
+                if (promptChoice == 0)
+                    break;
             }
 
             if (gameTime >= 30.0f and loss == 0)
             {
-                const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
-                drawWinPrompt(message);
                 markCountryAsVisited(5);
-                drawMap();
-                break;
+                int promptChoice = 0;
+                const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
+                drawWinPrompt(message, &promptChoice);
+                if (promptChoice == 1)
+                {
+                    drawMap();
+                    break;
+                }
+                else if (promptChoice == 0)
+                    break;
             }
 
             EndDrawing();
         }
     }
+    return 1;
 }

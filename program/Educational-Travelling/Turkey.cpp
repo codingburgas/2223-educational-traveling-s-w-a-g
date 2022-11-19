@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void turkeyQuest()
+int turkeyQuest()
 {
     string character = getCharacterFromSettings();
 
@@ -115,8 +115,10 @@ void turkeyQuest()
 
             if (started == false)
             {
+                int promptChoice = 0;
                 const char* message[3] = { "You smoke nargile in a club...", "You end up smoking too much...", "You end up passing out..." };
-                drawEnterPrompt(message);
+                if (drawEnterPrompt(message) == 1)
+                    break;
                 started = true;
             }
 
@@ -155,15 +157,23 @@ void turkeyQuest()
                     drawMap();
                     break;
                 }
+                if (promptChoice == 0)
+                    break;
             }
 
             if (playerYPos <= 170 and playerXPos >= 370 - bed.width and playerXPos <= 370 and loss == 0)
             {
-                const char* message[3] = { "You've successfully survived", "the arabian nights event.", "You have woken up in your room in Istanbul." };
-                drawWinPrompt(message);
                 markCountryAsVisited(4);
-                drawMap();
-                break;
+                int promptChoice = 0;
+                const char* message[3] = { "You've successfully survived", "the arabian nights event.", "You have woken up in your room in Istanbul." };
+                drawWinPrompt(message, &promptChoice);
+                if (promptChoice == 1)
+                {
+                    drawMap();
+                    break;
+                }
+                else if (promptChoice == 0)
+                    break;
             }
 
             DrawText(to_string(GetMousePosition().x).c_str(), 20, 20, 20, WHITE);
@@ -172,4 +182,5 @@ void turkeyQuest()
             EndDrawing();
         }
     }
+    return 1;
 }

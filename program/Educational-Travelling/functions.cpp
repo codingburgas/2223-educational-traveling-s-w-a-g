@@ -71,7 +71,7 @@ void drawLossPrompt(int* promptChoice)
 
 }
 
-void drawWinPrompt(const char* message[3])
+void drawWinPrompt(const char* message[3], int *promptChoice)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
@@ -104,13 +104,17 @@ void drawWinPrompt(const char* message[3])
                 isBackPressed = 1;
 
             if (isBackPressed and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
+            {
+                *promptChoice = 1;
                 break;
+            }
+                
         }
         EndDrawing();
     }
 }
 
-void drawEnterPrompt(const char* message[3])
+int drawEnterPrompt(const char* message[3])
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
@@ -143,10 +147,14 @@ void drawEnterPrompt(const char* message[3])
                 isBackPressed = 1;
 
             if (isBackPressed and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
-                break;
+            {
+                return 0;
+            }
+                
         }
         EndDrawing();
     }
+    return 1;
 }
 
 void markCountryAsVisited(int index)
