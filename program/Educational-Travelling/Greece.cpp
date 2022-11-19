@@ -42,6 +42,8 @@ void greeceQuest()
     bool walkRight = 0;
     bool loss = 0;
 
+    bool started = false;
+
     while (!WindowShouldClose())
     {
         timer += GetFrameTime();
@@ -79,6 +81,13 @@ void greeceQuest()
                 playerXPos = 0.0f;
 
             BeginDrawing();
+
+            if (started == false)
+            {
+                const char* message[3] = { "You go to a bar in Athens...", "The other people look very excited...", "A sirtaki event starts..." };
+                drawEnterPrompt(message);
+                started = true;
+            }
 
             if (loss == 0)
             {
