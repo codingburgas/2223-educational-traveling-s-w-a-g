@@ -201,7 +201,7 @@ int drawEnterPrompt(const char* message[3])
     return 1;
 }
 
-void markCountryAsVisited(int index)
+void markCountryAsVisited(int index, char lock_unlock)
 {
     fstream progress;
     string visited;
@@ -210,7 +210,7 @@ void markCountryAsVisited(int index)
     if (progress.is_open())
         getline(progress, visited);
     progress.close();
-    visited[index] = '1';
+    visited[index] = lock_unlock;
 
     progress.open("../assets/data/progress.txt", ios::out);
     if (progress.is_open())

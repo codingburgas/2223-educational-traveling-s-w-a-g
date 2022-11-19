@@ -74,13 +74,13 @@ int drawCheckPoint(const char* message[], const char* newLines[], int size, int 
                     25, 5, BLACK);
                 if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
                 {
-                    markCountryAsVisited(countryIndex);
+                    markCountryAsVisited(countryIndex, '1');
+                    drawMap();
                     break;
                 }
 
             }
         }
-
 
         EndDrawing();
 

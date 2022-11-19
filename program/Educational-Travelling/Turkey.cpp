@@ -163,7 +163,7 @@ int turkeyQuest()
 
             if (playerYPos <= 170 and playerXPos >= 370 - bed.width and playerXPos <= 370 and loss == 0)
             {
-                markCountryAsVisited(4);
+                markCountryAsVisited(4, '1');
                 int promptChoice = 0;
                 const char* message[3] = { "You've successfully survived", "the arabian nights event.", "You have woken up in your room in Istanbul." };
                 drawWinPrompt(message, &promptChoice);
@@ -175,9 +175,6 @@ int turkeyQuest()
                 else if (promptChoice == 0)
                     break;
             }
-
-            DrawText(to_string(GetMousePosition().x).c_str(), 20, 20, 20, WHITE);
-            DrawText(to_string(GetMousePosition().y).c_str(), 20, 40, 20, WHITE);
 
             EndDrawing();
         }

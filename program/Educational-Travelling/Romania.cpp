@@ -141,7 +141,7 @@ int romaniaQuest()
 
         if (gameTime >= 30.0f and loss == 0)
         {
-            markCountryAsVisited(2);
+            markCountryAsVisited(2, '1');
             int promptChoice = 0;
             const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest." };
             drawWinPrompt(message, &promptChoice);

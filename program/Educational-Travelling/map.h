@@ -16,5 +16,5 @@ void drawLossPrompt(int* promptChoice);
 void drawWinPrompt(const char* message[3], int *promptChoice);
 int drawEnterPrompt(const char* message[3]);
 void ComingSoonPrompt(Texture2D background, int* promptChoice, Color color);
-void markCountryAsVisited(int index);
+void markCountryAsVisited(int index, char lock_unlock);
 string getCharacterFromSettings();

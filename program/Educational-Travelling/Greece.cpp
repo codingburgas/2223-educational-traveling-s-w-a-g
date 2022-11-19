@@ -139,7 +139,7 @@ int greeceQuest()
 
             if (gameTime >= 30.0f and loss == 0)
             {
-                markCountryAsVisited(5);
+                markCountryAsVisited(5, '1');
                 int promptChoice = 0;
                 const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
                 drawWinPrompt(message, &promptChoice);

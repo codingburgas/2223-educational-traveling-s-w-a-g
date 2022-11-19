@@ -47,9 +47,15 @@ int main()
 
         if (IsMouseButtonUp(MOUSE_BUTTON_LEFT) && isStartPressed)
         {
-            if (drawMap() == 1)
+            if (drawMap() == 1) 
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    markCountryAsVisited(i, '0');
+                }
                 break;
-            isStartPressed = 0;
+                isStartPressed = 0;
+            }
         }
             
         if (CheckCollisionPointRec(mouse, { 212, yPos[1], 507, 96 }) and IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
