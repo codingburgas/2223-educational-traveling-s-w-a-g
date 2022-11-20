@@ -25,6 +25,23 @@ Rectangle convertStringToRect(string str)
     return Rectangle{ arr[0], arr[1], arr[2], arr[3] };
 }
 
+int drawEndScreen()
+{
+    Texture2D endscreen = LoadTexture("../assets/menus/endscreen.png");
+
+    endscreen.height *= 1.21;
+    endscreen.width *= 1.21;
+
+    while (!WindowShouldClose())
+    {
+        BeginDrawing();
+        ClearBackground({ 124, 164, 200 });
+        DrawTexture(endscreen, 0, (SCREEN_HEIGHT - endscreen.height) / 2, WHITE);
+        EndDrawing();
+    }
+    return 1;
+}
+
 int drawMap()
 {
     SetMouseCursor(0);
@@ -54,6 +71,12 @@ int drawMap()
    
     if (progress.is_open())
         getline(progress, visited);
+
+    if (visited == "00111101")
+    {
+        if (drawEndScreen() == 1)
+            return 1;
+    }
 
     int frameCounter = 0;
     float timer = 0.0f;
