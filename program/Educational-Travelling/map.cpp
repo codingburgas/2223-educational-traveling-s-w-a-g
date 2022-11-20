@@ -35,8 +35,10 @@ int drawEndScreen()
     while (!WindowShouldClose())
     {
         BeginDrawing();
+
         ClearBackground({ 124, 164, 200 });
         DrawTexture(endscreen, 0, (SCREEN_HEIGHT - endscreen.height) / 2, WHITE);
+
         EndDrawing();
     }
     return 1;
@@ -77,7 +79,10 @@ int drawMap()
     if (visited == "00111101")
     {
         if (drawEndScreen() == 1)
+        {
             return 1;
+        }
+            
     }
 
     int frameCounter = 0;
@@ -111,6 +116,7 @@ int drawMap()
                 {
                     string rectStr;
                     getline(mask, rectStr);
+
                     if (CheckCollisionPointRec(mouse, convertStringToRect(rectStr)) and visited[i] == '0')
                     {
                         hover = 1;
@@ -126,6 +132,7 @@ int drawMap()
                 }
             }
             mask.close();
+
             if (breakInner)
             {
                 breakOuter = 1;
@@ -133,17 +140,25 @@ int drawMap()
             }
         }
         if (breakOuter)
+        {
             break;
+        }
 
         if (hover)
+        {
             SetMouseCursor(4);
+        }
         else
+        {
             SetMouseCursor(0);
+        }
 
         BeginDrawing();
 
             ClearBackground(Color{ 23, 21, 21 });
+
             DrawTexture(mapFrames[frameCounter], 0, 0, WHITE);
+
             DrawRectangle(50, 728, 200, 50, WHITE);
             DrawRectangleLinesEx({ 50, 728, 200, 50 }, 3, BLACK);
             DrawTextEx(font, "Back to menu", { 75, 745 }, 20, 2, BLACK);

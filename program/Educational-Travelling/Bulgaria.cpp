@@ -15,7 +15,9 @@ int bulgariaQuest()
         drawComingSoonPrompt(background, &promptChoice, WHITE, 1);
 
         if (promptChoice == 1)
+        {
             drawMap();
+        }
         break;
 
         EndDrawing();

@@ -90,5 +90,8 @@ int main()
     }
 
     if (startProgram() == 1)
+    {
         CloseWindow();
+    }
+        
 }

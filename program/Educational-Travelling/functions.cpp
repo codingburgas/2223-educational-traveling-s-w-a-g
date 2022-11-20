@@ -56,7 +56,9 @@ void drawLossPrompt(int* promptChoice)
                   (75 - MeasureTextEx(font, "Back to map", 25, 5).y) / 2 + 350 },
                 25, 5, BLACK);
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+            {
                 backButtonPress = 1;
+            }
 
             if (backButtonPress and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
             {
@@ -101,7 +103,9 @@ void drawWinPrompt(const char* message[3], int *promptChoice)
                   (75 - MeasureTextEx(font, "Back to map", 25, 5).y) / 2 + 350 },
                 25, 5, BLACK);
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+            {
                 isBackPressed = 1;
+            }
 
             if (isBackPressed and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
             {
@@ -146,7 +150,9 @@ void drawComingSoonPrompt(Texture2D background, int* promptChoice, Color color, 
                   (75 - MeasureTextEx(font, "Back to map", 25, 5).y) / 2 + 350 },
                 25, 5, BLACK);
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+            {
                 isBackPressed = 1;
+            }
 
             if (isBackPressed and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
             {
@@ -192,7 +198,9 @@ int drawEnterPrompt(const char* message[3], int *promptChoice)
                   (75 - MeasureTextEx(font, "Proceed...", 25, 5).y) / 2 + 350 },
                 25, 5, BLACK);
             if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+            {
                 isBackPressed = 1;
+            }
 
             if (isBackPressed and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
             {
@@ -224,13 +232,17 @@ void lockOrUnlockCountry(int index, char lock_unlock)
 
     progress.open("../assets/data/progress.txt", ios::in);
     if (progress.is_open())
+    {
         getline(progress, visited);
+    }
     progress.close();
     visited[index] = lock_unlock;
 
     progress.open("../assets/data/progress.txt", ios::out);
     if (progress.is_open())
+    {
         progress << visited;
+    }
     progress.close();
 }
 
@@ -241,7 +253,9 @@ string getCharacterFromSettings()
 
     settings.open("../assets/data/settings.txt", ios::in);
     if (settings.is_open())
+    {
         getline(settings, character);
+    }
     settings.close();
 
     return character;

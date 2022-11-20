@@ -16,6 +16,6 @@ void drawLossPrompt(int* promptChoice);
 void drawWinPrompt(const char* message[3], int *promptChoice);
 int drawEnterPrompt(const char* message[3], int *promptChoice);
 void drawComingSoonPrompt(Texture2D background, int* promptChoice, Color color, bool isBulgaria);
-void lockOrUnlockCountry(int index, char lock_unlock);
+void lockOrUnlockCountry(int index, char lockOrUnlock);
 string getCharacterFromSettings();
 int startProgram();

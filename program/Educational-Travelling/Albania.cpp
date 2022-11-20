@@ -18,7 +18,9 @@ int albaniaQuest()
         drawComingSoonPrompt(background, &promptChoice, WHITE, 0);
 
         if (promptChoice == 1)
+        {
             drawMap();
+        }   
         break;
 
         EndDrawing();

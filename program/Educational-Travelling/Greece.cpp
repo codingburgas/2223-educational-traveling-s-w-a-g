@@ -59,7 +59,9 @@ int greeceQuest()
                 {
                     plateXPos = GetRandomValue(playerXPos + 150, playerXPos - 150);
                     if (plateXPos + plate.width <= 900 and plateXPos - plate.width >= 0)
+                    {
                         break;
+                    }
                 }
                 timer = 0.0f;
             }
@@ -76,9 +78,13 @@ int greeceQuest()
             }
 
             if (playerXPos > 924 - player.width)
+            {
                 playerXPos = 924 - player.width;
+            }
             else if (playerXPos < 0)
+            {
                 playerXPos = 0.0f;
+            }
 
             BeginDrawing();
 
@@ -87,6 +93,7 @@ int greeceQuest()
                 int promptChoice = 0;
                 const char* message[3] = { "You go to a bar in Athens...", "The other people look very excited...", "A sirtaki event starts..." };
                 drawEnterPrompt(message, &promptChoice);
+
                 if (promptChoice == 1)
                 {
                     started = true;
@@ -97,7 +104,9 @@ int greeceQuest()
                     break;
                 }
                 else if (promptChoice == 0)
+                {
                     break;
+                }
             }
 
             if (loss == 0)
@@ -108,7 +117,9 @@ int greeceQuest()
             }
 
             if (timer < 1.0f)
+            {
                 DrawTexture(plate, plateXPos, plateYPos, WHITE);
+            }
             else if (plateYPos <= 828)
             {
                 if (CheckCollisionRecs({ playerXPos, 650, float(player.width),float(player.height) },
@@ -118,33 +129,37 @@ int greeceQuest()
                     timer = 1.0f;
                 }
                 else
+                {
                     DrawTexture(plate, plateXPos, plateYPos, WHITE);
+                }
             }
 
             if (loss == 0)
             {
                 if (IsKeyDown(KEY_LEFT) or IsKeyDown(KEY_RIGHT))
+                {
                     DrawTexture(walkRight ? walkR : walkL, playerXPos, 650, WHITE);
+                }
                 else
+                {
                     DrawTexture(player, playerXPos, 650, WHITE);
+                }
             }
 
             if (loss == 1)
             {
                 int promptChoice = 0;
                 drawLossPrompt(&promptChoice);
+
                 if (promptChoice == 1)
                 {
                     greeceQuest();
-                    break;
                 }
                 else if (promptChoice == 2)
                 {
                     drawMap();
-                    break;
                 }
-                if (promptChoice == 0)
-                    break;
+                break;
             }
 
             if (gameTime >= 30.0f and loss == 0)
@@ -153,13 +168,13 @@ int greeceQuest()
                 int promptChoice = 0;
                 const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
                 drawWinPrompt(message, &promptChoice);
+
                 if (promptChoice == 1)
                 {
                     drawMap();
-                    break;
                 }
-                else if (promptChoice == 0)
-                    break;
+                break;
+                
             }
 
             EndDrawing();

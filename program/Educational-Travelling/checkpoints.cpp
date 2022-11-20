@@ -16,7 +16,6 @@ int drawCheckPoint(const char* message[], const char* newLines[], int size, int 
     int index = 0;
     string text = "";
 
-
     float newXPos;
     int newLineLetter = 0;
     string newLine = "";
@@ -31,6 +30,7 @@ int drawCheckPoint(const char* message[], const char* newLines[], int size, int 
         fontSize = index == size - 1 ? 50 : 30;
         xPos = (SCREEN_WIDTH - MeasureTextEx(font, message[index], fontSize, 5).x) / 2;
         text += message[index][letter];
+
         if (letter >= strlen(message[index]) and index > 0)
         {
             newLine += newLines[index][newLineLetter];
@@ -38,15 +38,18 @@ int drawCheckPoint(const char* message[], const char* newLines[], int size, int 
         }
 
         BeginDrawing();
+
         ClearBackground(BLACK);
 
         DrawTextEx(font, "Story quest", { 50, 50 }, 30, 5, WHITE);
         DrawTextEx(font, text.c_str(), { xPos, 400 }, fontSize, 5, WHITE);
+
         if (letter >= strlen(message[index]) and index > 0)
         {
             newXPos = (SCREEN_WIDTH - MeasureTextEx(font, newLines[index], 30, 5).x) / 2;
             DrawTextEx(font, newLine.c_str(), { newXPos, 430 }, 30, 5, WHITE);
         }
+
         if (index < size - 1)
         {
             DrawRectangleLinesEx({ 628, 624, 175, 75 }, 5, WHITE);
@@ -57,6 +60,7 @@ int drawCheckPoint(const char* message[], const char* newLines[], int size, int 
                 DrawTextEx(font, "Next >>", { 650, 650 }, 25, 5, BLACK);
             }
         }
+
         if (index == size - 1)
         {
             DrawRectangleLinesEx({ (SCREEN_WIDTH - 250) / 2, 500, 250, 75 }, 6, WHITE);
@@ -72,6 +76,7 @@ int drawCheckPoint(const char* message[], const char* newLines[], int size, int 
                     { (250 - MeasureTextEx(font, "Back to map", 25, 5).x) / 2 + (SCREEN_WIDTH - 250) / 2,
                       (75 - MeasureTextEx(font, "Back to map", 25, 5).y) / 2 + 500 },
                     25, 5, BLACK);
+
                 if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
                 {
                     lockOrUnlockCountry(countryIndex, '1');

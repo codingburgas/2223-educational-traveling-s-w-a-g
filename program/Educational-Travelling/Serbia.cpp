@@ -18,8 +18,9 @@ int serbiaQuest()
         drawComingSoonPrompt(background, &promptChoice, BLACK, 0);
 
         if (promptChoice == 1)
+        {
             drawMap();
-        
+        }
         break;
 
         EndDrawing();

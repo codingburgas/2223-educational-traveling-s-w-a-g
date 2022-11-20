@@ -90,6 +90,7 @@ int drawSettingsMenu()
 		DrawRectangle(50, 728, 200, 50, WHITE);
 		DrawRectangleLinesEx({ 50, 728, 200, 50 }, 3, BLACK);
 		DrawTextEx(font, "Back to menu", { 75, 745 }, 20, 2, BLACK);
+
 		if (CheckCollisionPointRec(GetMousePosition(), { 50, 728, 200, 50 }))
 		{
 

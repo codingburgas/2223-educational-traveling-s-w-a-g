@@ -47,7 +47,6 @@ int romaniaQuest()
     bool loss = 0;
 
     bool started = false;
-    //bool isWindowClosed = 0;
 
     while (!WindowShouldClose())
     {
@@ -62,7 +61,9 @@ int romaniaQuest()
                 {
                     vampireXPos = GetRandomValue(playerXPos - 150, playerXPos + 150);
                     if (vampireXPos + vampire.width <= 924 and vampireXPos >= 0)
+                    {
                         break;
+                    }
                 }
                 timer = 0.0f;
             }
@@ -79,9 +80,13 @@ int romaniaQuest()
             }
 
             if (playerXPos > 924 - player.width)
+            {
                 playerXPos = 924 - player.width;
+            }
             else if (playerXPos < 0)
+            {
                 playerXPos = 0.0f;
+            }
         }
 
         BeginDrawing();
@@ -101,7 +106,9 @@ int romaniaQuest()
                 break;
             }
             else if (promptChoice == 0)
-                break; 
+            {
+                break;
+            }
         }
 
         if (loss == 0)
@@ -112,7 +119,9 @@ int romaniaQuest()
         }
 
         if (timer < 1.0f)
-            DrawTexture(shadow, vampireXPos, 500, GRAY); // BLACK?
+        {
+            DrawTexture(shadow, vampireXPos, 500, GRAY);
+        } // BLACK?
         else if (timer < 2.0f)
         {
             if (CheckCollisionRecs({ playerXPos, 600, float(player.width),float(player.height) },
@@ -122,33 +131,37 @@ int romaniaQuest()
                 timer = 1.0f;
             }
             else
+            {
                 DrawTexture(vampire, vampireXPos, 500, GRAY);
+            }
         }
 
         if (loss == 0)
         {
             if (IsKeyDown(KEY_LEFT) or IsKeyDown(KEY_RIGHT))
-              DrawTexture(walkRight ? walkR : walkL, playerXPos, 600, GRAY);
+            {
+                DrawTexture(walkRight ? walkR : walkL, playerXPos, 600, GRAY);
+            }
             else
+            {
                 DrawTexture(player, playerXPos, 600, GRAY);
+            }
         } 
 
         if (loss == 1)
         {
             int promptChoice = 0;
             drawLossPrompt(&promptChoice);
+
             if (promptChoice == 1)
             {
                 romaniaQuest();
-                break;
             }
             else if (promptChoice == 2)
             {
                 drawMap();
-                break;
             }
-            if (promptChoice == 0)
-                break;
+            break;
         }   
 
         if (gameTime >= 30.0f and loss == 0)
@@ -157,13 +170,12 @@ int romaniaQuest()
             int promptChoice = 0;
             const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest." };
             drawWinPrompt(message, &promptChoice);
+
             if (promptChoice == 1)
             {
                 drawMap();
-                break;
             }
-            else if (promptChoice == 0)
-                break;
+            break;
         }
 
         EndDrawing();

@@ -102,9 +102,13 @@ int turkeyQuest()
             }
 
             if (playerXPos > 924 - player.width)
+            {
                 playerXPos = 924 - player.width;
+            }
             else if (playerXPos < 0)
+            {
                 playerXPos = 0.0f;
+            }
 
             if (baklavaY <= playerYPos) 
             {
@@ -118,6 +122,7 @@ int turkeyQuest()
                 int promptChoice = 0;
                 const char* message[3] = { "You smoke nargile in a club...", "You end up smoking too much...", "You end up passing out..." };
                 drawEnterPrompt(message, &promptChoice);
+
                 if (promptChoice == 1)
                 {
                     started = true;
@@ -128,7 +133,9 @@ int turkeyQuest()
                     break;
                 }
                 else if (promptChoice == 0)
+                {
                     break;
+                }
             }
 
             if (loss == 0)
@@ -147,15 +154,20 @@ int turkeyQuest()
             if (loss == 0)
             {
                 if (IsKeyDown(KEY_LEFT) or IsKeyDown(KEY_RIGHT))
+                {
                     DrawTexture(walkRight ? walkR : walkL, playerXPos, playerYPos, WHITE);
+                }
                 else
+                {
                     DrawTexture(player, playerXPos, playerYPos, WHITE);
+                }
             }
 
             if (loss == 1)
             {
                 int promptChoice = 0;
                 drawLossPrompt(&promptChoice);
+
                 if (promptChoice == 1)
                 {
                     turkeyQuest();
@@ -167,7 +179,9 @@ int turkeyQuest()
                     break;
                 }
                 if (promptChoice == 0)
+                {
                     break;
+                }
             }
 
             if (playerYPos <= 170 and playerXPos >= 370 - bed.width and playerXPos <= 370 and loss == 0)
@@ -176,13 +190,16 @@ int turkeyQuest()
                 int promptChoice = 0;
                 const char* message[3] = { "You've successfully survived", "the arabian nights event.", "You have woken up in your room in Istanbul." };
                 drawWinPrompt(message, &promptChoice);
+
                 if (promptChoice == 1)
                 {
                     drawMap();
                     break;
                 }
                 else if (promptChoice == 0)
+                {
                     break;
+                }
             }
 
             EndDrawing();
