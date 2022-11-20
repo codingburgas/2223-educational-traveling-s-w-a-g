@@ -84,10 +84,20 @@ int greeceQuest()
 
             if (started == false)
             {
+                int promptChoice = 0;
                 const char* message[3] = { "You go to a bar in Athens...", "The other people look very excited...", "A sirtaki event starts..." };
-                if (drawEnterPrompt(message) == 1)
+                drawEnterPrompt(message, &promptChoice);
+                if (promptChoice == 1)
+                {
+                    started = true;
+                }
+                else if (promptChoice == 2)
+                {
+                    drawMap();
                     break;
-                started = true;
+                }
+                else if (promptChoice == 0)
+                    break;
             }
 
             if (loss == 0)
@@ -139,7 +149,7 @@ int greeceQuest()
 
             if (gameTime >= 30.0f and loss == 0)
             {
-                markCountryAsVisited(5, '1');
+                lockOrUnlockCountry(5, '1');
                 int promptChoice = 0;
                 const char* message[3] = { "You've successfully survived", "the sirtaki event.", "You've returned to Athens." };
                 drawWinPrompt(message, &promptChoice);

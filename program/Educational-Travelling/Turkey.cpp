@@ -117,9 +117,18 @@ int turkeyQuest()
             {
                 int promptChoice = 0;
                 const char* message[3] = { "You smoke nargile in a club...", "You end up smoking too much...", "You end up passing out..." };
-                if (drawEnterPrompt(message) == 1)
+                drawEnterPrompt(message, &promptChoice);
+                if (promptChoice == 1)
+                {
+                    started = true;
+                }
+                else if (promptChoice == 2)
+                {
+                    drawMap();
                     break;
-                started = true;
+                }
+                else if (promptChoice == 0)
+                    break;
             }
 
             if (loss == 0)
@@ -163,7 +172,7 @@ int turkeyQuest()
 
             if (playerYPos <= 170 and playerXPos >= 370 - bed.width and playerXPos <= 370 and loss == 0)
             {
-                markCountryAsVisited(4, '1');
+                lockOrUnlockCountry(4, '1');
                 int promptChoice = 0;
                 const char* message[3] = { "You've successfully survived", "the arabian nights event.", "You have woken up in your room in Istanbul." };
                 drawWinPrompt(message, &promptChoice);

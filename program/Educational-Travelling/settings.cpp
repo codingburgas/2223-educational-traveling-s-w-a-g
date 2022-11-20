@@ -7,6 +7,8 @@ using namespace std;
 
 int drawSettingsMenu()
 {
+	Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
+
 	Texture2D settingsMenu = LoadTexture("../assets/menus/settings_menu.png");
 
 	settingsMenu.width *= 1.21;
@@ -84,6 +86,19 @@ int drawSettingsMenu()
 					{ (float(settingsMenu.width) / 4) * frameNum, 0, float(settingsMenu.width / 4), float(settingsMenu.height) },
 					{ 0, float(SCREEN_HEIGHT - settingsMenu.height) / 2 }, 
 					WHITE);
+
+		DrawRectangle(50, 728, 200, 50, WHITE);
+		DrawRectangleLinesEx({ 50, 728, 200, 50 }, 3, BLACK);
+		DrawTextEx(font, "Back to menu", { 75, 745 }, 20, 2, BLACK);
+		if (CheckCollisionPointRec(GetMousePosition(), { 50, 728, 200, 50 }))
+		{
+
+			if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+			{
+				startProgram();
+				break;
+			}
+		}
 		EndDrawing();
 	}
 	return 1;

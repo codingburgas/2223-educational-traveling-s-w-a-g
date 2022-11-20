@@ -62,6 +62,8 @@ int drawMap()
         mapFrames[i].width *= 1.5;
     }
 
+    Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
+
     fstream mask;
     fstream progress;
 
@@ -142,6 +144,18 @@ int drawMap()
 
             ClearBackground(Color{ 23, 21, 21 });
             DrawTexture(mapFrames[frameCounter], 0, 0, WHITE);
+            DrawRectangle(50, 728, 200, 50, WHITE);
+            DrawRectangleLinesEx({ 50, 728, 200, 50 }, 3, BLACK);
+            DrawTextEx(font, "Back to menu", { 75, 745 }, 20, 2, BLACK);
+
+            if (CheckCollisionPointRec(GetMousePosition(), { 50, 728, 200, 50 }))
+            {
+                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                {
+                    startProgram();
+                    break;
+                }
+            }
 
         EndDrawing();
     }

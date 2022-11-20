@@ -5,10 +5,8 @@
 
 using namespace std;
 
-int main()
+int startProgram()
 {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE);
-
     Texture2D menuLight = LoadTexture("../assets/menus/main_menu_light.png");
     Texture2D menuDark = LoadTexture("../assets/menus/main_menu_dark.png");
 
@@ -22,8 +20,6 @@ int main()
 
     fstream settings;
     string theme;
-
-    //bool isWindowClosed = 0;
 
     while (!WindowShouldClose())
     {
@@ -49,10 +45,6 @@ int main()
         {
             if (drawMap() == 1) 
             {
-                for (int i = 0; i < 8; i++)
-                {
-                    markCountryAsVisited(i, '0');
-                }
                 break;
                 isStartPressed = 0;
             }
@@ -86,6 +78,17 @@ int main()
            
         EndDrawing();
     }
+    return 1;
+}
+int main()
+{
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE);
 
-    CloseWindow();
+    for (int i = 0; i < 8; i++)
+    {
+        lockOrUnlockCountry(i, '0');
+    }
+
+    if (startProgram() == 1)
+        CloseWindow();
 }

@@ -40,7 +40,7 @@ void drawLossPrompt(int* promptChoice)
                 { (250 - MeasureTextEx(font, "Retry", 25, 5).x) / 2 + (SCREEN_WIDTH - 550) / 2,
                   (75 - MeasureTextEx(font, "Retry", 25, 5).y) / 2 + 350 },
                 25, 5, BLACK);
-            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+            if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
             {
                 *promptChoice = 1;
                 break;
@@ -159,7 +159,7 @@ void drawComingSoonPrompt(Texture2D background, int* promptChoice, Color color, 
     }
 }
 
-int drawEnterPrompt(const char* message[3])
+int drawEnterPrompt(const char* message[3], int *promptChoice)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
@@ -170,6 +170,9 @@ int drawEnterPrompt(const char* message[3])
         BeginDrawing();
 
         ClearBackground(BLACK);
+
+        DrawRectangleLinesEx({ 50, 728, 200, 50 }, 3, WHITE);
+        DrawTextEx(font, "Back to map", { 80, 745 }, 20, 2, WHITE);
 
         DrawTextEx(font, message[0], { (SCREEN_WIDTH - MeasureTextEx(font, message[0], 30, 5).x) / 2, 200 }, 30, 5, WHITE);
         DrawTextEx(font, message[1], { (SCREEN_WIDTH - MeasureTextEx(font, message[1], 30, 5).x) / 2, 235 }, 30, 5, WHITE);
@@ -193,16 +196,28 @@ int drawEnterPrompt(const char* message[3])
 
             if (isBackPressed and IsMouseButtonUp(MOUSE_BUTTON_LEFT))
             {
-                return 0;
+                *promptChoice = 1;
+                break;
             }
                 
         }
+        if (CheckCollisionPointRec(GetMousePosition(), { 50, 728, 200, 50 }))
+        {
+            DrawRectangle( 50, 728, 200, 50, WHITE);
+            DrawTextEx(font, "Back to map", { 80, 745 }, 20, 2, BLACK);
+            if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+            {
+                *promptChoice = 2;
+                break;
+            }
+        }
+
         EndDrawing();
     }
     return 1;
 }
 
-void markCountryAsVisited(int index, char lock_unlock)
+void lockOrUnlockCountry(int index, char lock_unlock)
 {
     fstream progress;
     string visited;
@@ -231,4 +246,3 @@ string getCharacterFromSettings()
 
     return character;
 }
-

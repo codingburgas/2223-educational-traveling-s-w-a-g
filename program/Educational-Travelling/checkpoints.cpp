@@ -74,7 +74,7 @@ int drawCheckPoint(const char* message[], const char* newLines[], int size, int 
                     25, 5, BLACK);
                 if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
                 {
-                    markCountryAsVisited(countryIndex, '1');
+                    lockOrUnlockCountry(countryIndex, '1');
                     drawMap();
                     break;
                 }

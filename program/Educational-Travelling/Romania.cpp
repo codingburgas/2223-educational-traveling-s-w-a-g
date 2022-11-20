@@ -88,10 +88,20 @@ int romaniaQuest()
 
         if (started == false)
         {
+            int promptChoice = 0;
             const char* message[3] = { "You get lost in a forest", "during a full moon...", "Something is moving in the shadows..." };
-            if (drawEnterPrompt(message) == 1)
+            drawEnterPrompt(message, &promptChoice);
+            if (promptChoice == 1)
+            {
+                started = true;
+            }
+            else if (promptChoice == 2)
+            {
+                drawMap();
                 break;
-            started = true;
+            }
+            else if (promptChoice == 0)
+                break; 
         }
 
         if (loss == 0)
@@ -99,9 +109,6 @@ int romaniaQuest()
             ClearBackground(RAYWHITE);
 
             DrawTexture(background, -620, 0, WHITE);
-
-            DrawRectangleLinesEx({ 50, 50, 75, 50 }, 5, WHITE);
-            DrawTextEx(font, "<<", { 75, 50 }, 30, 5, WHITE);
         }
 
         if (timer < 1.0f)
@@ -146,7 +153,7 @@ int romaniaQuest()
 
         if (gameTime >= 30.0f and loss == 0)
         {
-            markCountryAsVisited(2, '1');
+            lockOrUnlockCountry(2, '1');
             int promptChoice = 0;
             const char* message[3] = { "You've successfully escaped from", "the vampires in the woods.", "You've returned to Bucharest." };
             drawWinPrompt(message, &promptChoice);
