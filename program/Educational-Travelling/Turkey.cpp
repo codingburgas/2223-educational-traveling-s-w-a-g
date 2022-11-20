@@ -16,18 +16,25 @@ int drawTurkeyQuest(bool returned)
     Texture2D walkR = LoadTexture(("../assets/characters/" + character + "_walk_right.png").c_str());
     Texture2D walkL = LoadTexture(("../assets/characters/" + character + "_walk_left.png").c_str());
 
-    Texture2D baklava = LoadTexture("../assets/placeholder/baklava_placeholder.png");
-    Texture2D cloud = LoadTexture("../assets/placeholder/cloud_placeholder.png");
-    Texture2D bed = LoadTexture("../assets/placeholder/bed_placeholder.png");
+    Texture2D sand = LoadTexture("../assets/quests/Turkey/Sand.png");
+    //Texture2D cloud1 = LoadTexture("../assets/placeholder/cloud_placeholder.png");
+    Texture2D cloud = LoadTexture("../assets/quests/Turkey/cloud.png");
+    Texture2D bed = LoadTexture("../assets/quests/Turkey/bed.png");
     
-    cloud.width *= 0.3;
-    cloud.height *= 0.3;
+    cloud.width *= 0.33;
+    cloud.height *= 0.33;
 
-    bed.width *= 0.1;
-    bed.height *= 0.1;
+    //cloud1.width *= 0.33;
+    //cloud1.height *= 0.33;
+
+    bed.width *= 0.75;
+    bed.height *= 0.75;
 
     background.width *= 1.00;
     background.height *= 1.00;
+
+    sand.width *= 2.8;
+    sand.height *= 1;
 
     player.width *= 0.5;
     player.height *= 0.5;
@@ -43,7 +50,7 @@ int drawTurkeyQuest(bool returned)
     float playerXPos = 770;
     float playerYPos = 550;
 
-    float baklavaY = 828;
+    float sandY = 828;
 
     bool jump = false;
     float jumptimer = 0;
@@ -62,7 +69,7 @@ int drawTurkeyQuest(bool returned)
 
         if (!loss)
         {
-            baklavaY -= 0.7f;
+            sandY -= 0.7f;
 
             if (IsKeyDown(KEY_LEFT))
             {
@@ -97,7 +104,7 @@ int drawTurkeyQuest(bool returned)
                 jumpLimit = 0;
                 cooldown = 0;
             }
-            if (playerYPos <= 924 - player.height and !(playerXPos <= 550 + cloud.width - player.width and playerXPos >= 550 and playerYPos == 615 - (cloud.height / 2 - 50)) and!(playerXPos <= 210 + cloud.width - player.width and playerXPos >= 210 and playerYPos == 455 - (cloud.height/2 - 50)) and !(playerXPos <= 550 + cloud.width - player.width and playerXPos >= 550 and playerYPos == 295 - (cloud.height / 2 - 50)) and !(playerXPos <= 210 + cloud.width - player.width and playerXPos >= 210 and playerYPos == 135 - (cloud.height / 2 - 50)) and jump == false)
+            if (playerYPos <= 924 - player.height and !(playerXPos <= 520 + cloud.width - player.width and playerXPos >= 520 and playerYPos == 615 - (cloud.height / 2 - 50)) and!(playerXPos <= 180 + cloud.width - player.width and playerXPos >= 180 and playerYPos == 455 - (cloud.height/2 - 50)) and !(playerXPos <= 520 + cloud.width - player.width and playerXPos >= 520 and playerYPos == 295 - (cloud.height / 2 - 50)) and !(playerXPos <= 180 + cloud.width - player.width and playerXPos >= 180 and playerYPos == 135 - (cloud.height / 2 - 50)) and jump == false)
             {
                 playerYPos += 5.0f;
             }
@@ -111,7 +118,7 @@ int drawTurkeyQuest(bool returned)
                 playerXPos = 0.0f;
             }
 
-            if (baklavaY <= playerYPos) 
+            if (sandY <= playerYPos)
             {
                 loss = 1;
             }
@@ -144,12 +151,12 @@ int drawTurkeyQuest(bool returned)
                 ClearBackground(RAYWHITE);
 
                 DrawTexture(background, 0, 0, WHITE);
-                DrawTexture(baklava, 0, baklavaY, WHITE);
-                DrawTexture(cloud, 550, 615, WHITE);
-                DrawTexture(cloud, 210, 455, WHITE);
-                DrawTexture(cloud, 550, 290, WHITE);
-                DrawTexture(cloud, 210, 130, WHITE);
-                DrawTexture(bed, 340, 170, WHITE);
+                DrawTexture(sand, 0, sandY, WHITE);
+                DrawTexture(cloud, 520, 615, WHITE);
+                DrawTexture(cloud, 180, 455, WHITE);
+                DrawTexture(cloud, 520, 290, WHITE);
+                DrawTexture(cloud, 180, 130, WHITE);
+                DrawTexture(bed, 250, 120, WHITE);
             }
 
             if (loss == 0)
@@ -185,7 +192,7 @@ int drawTurkeyQuest(bool returned)
                 }
             }
 
-            if (playerYPos <= 170 and playerXPos >= 370 - bed.width and playerXPos <= 370 and loss == 0)
+            if (playerYPos <= 120 and playerXPos >= 250 and playerXPos <= 250 + bed.width * 0.75 and loss == 0)
             {
                 lockOrUnlockCountry(4, '1');
                 int promptChoice = 0;
@@ -202,6 +209,9 @@ int drawTurkeyQuest(bool returned)
                     break;
                 }
             }
+
+            DrawText(to_string(GetMousePosition().x).c_str(), 20, 20, 20, WHITE);
+            DrawText(to_string(GetMousePosition().y).c_str(), 20, 40, 20, WHITE);
 
             EndDrawing();
         }
