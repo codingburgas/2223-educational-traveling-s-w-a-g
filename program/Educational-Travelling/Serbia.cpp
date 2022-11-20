@@ -3,7 +3,8 @@
 #include <iostream>
 #include <fstream>
 
-int serbiaQuest()
+// displays Serbia quest
+int drawSerbiaQuest()
 {
     Texture2D background = LoadTexture("../assets/quests/Serbia/Serbia_Background.png");
 

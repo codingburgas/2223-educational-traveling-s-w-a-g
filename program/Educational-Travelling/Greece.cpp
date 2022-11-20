@@ -6,7 +6,8 @@
 
 using namespace std;
 
-int greeceQuest()
+// displays Greece quest
+int drawGreeceQuest()
 {
     string character = getCharacterFromSettings();
 
@@ -153,7 +154,7 @@ int greeceQuest()
 
                 if (promptChoice == 1)
                 {
-                    greeceQuest();
+                    drawGreeceQuest();
                 }
                 else if (promptChoice == 2)
                 {
@@ -174,7 +175,7 @@ int greeceQuest()
                     drawMap();
                 }
                 break;
-                
+
             }
 
             EndDrawing();

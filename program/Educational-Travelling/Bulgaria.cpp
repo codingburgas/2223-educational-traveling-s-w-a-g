@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "map.h"
 
+// displays assets and text for Bulgaria
 int drawMentorText(Texture2D background, Texture2D mentor, const char* message[], const char* newLines[], int size)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
@@ -82,7 +83,8 @@ int drawMentorText(Texture2D background, Texture2D mentor, const char* message[]
     return 1;
 }
 
-int bulgariaQuest()
+// loads Bulgaria quest
+int drawBulgariaQuest()
 {
     Texture2D background = LoadTexture("../assets/quests/Bulgaria/bulgaria_background.png");
     Texture2D mentor = LoadTexture("../assets/quests/Bulgaria/mentor.png");

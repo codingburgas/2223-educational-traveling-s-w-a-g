@@ -2,9 +2,9 @@
 
 #define QUESTS_H_INCLUDED
 
-int albaniaQuest();
-int bulgariaQuest();
-int greeceQuest();
-int romaniaQuest();
-int serbiaQuest();
-int turkeyQuest();
+int drawAlbaniaQuest();
+int drawBulgariaQuest();
+int drawGreeceQuest();
+int drawRomaniaQuest();
+int drawSerbiaQuest();
+int drawTurkeyQuest();

@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// displays loss prompt
 void drawLossPrompt(int* promptChoice)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
@@ -73,6 +74,7 @@ void drawLossPrompt(int* promptChoice)
 
 }
 
+// displays win prompt
 void drawWinPrompt(const char* message[3], int *promptChoice)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
@@ -118,6 +120,7 @@ void drawWinPrompt(const char* message[3], int *promptChoice)
     }
 }
 
+// displays coming soon prompt
 void drawComingSoonPrompt(Texture2D background, int* promptChoice, Color color, bool isBulgaria)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
@@ -165,6 +168,7 @@ void drawComingSoonPrompt(Texture2D background, int* promptChoice, Color color, 
     }
 }
 
+// displays prompt on entry
 int drawEnterPrompt(const char* message[3], int *promptChoice)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
@@ -225,6 +229,7 @@ int drawEnterPrompt(const char* message[3], int *promptChoice)
     return 1;
 }
 
+// makes country accessible or inaccessible
 void lockOrUnlockCountry(int index, char lock_unlock)
 {
     fstream progress;
@@ -246,6 +251,7 @@ void lockOrUnlockCountry(int index, char lock_unlock)
     progress.close();
 }
 
+// takes character string from settings.txt
 string getCharacterFromSettings()
 {
     fstream settings;

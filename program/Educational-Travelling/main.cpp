@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// draws main menu
 int startProgram()
 {
     Texture2D menuLight = LoadTexture("../assets/menus/main_menu_light.png");
@@ -80,6 +81,7 @@ int startProgram()
     }
     return 1;
 }
+
 int main()
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE);
@@ -92,6 +94,5 @@ int main()
     if (startProgram() == 1)
     {
         CloseWindow();
-    }
-        
+    }       
 }

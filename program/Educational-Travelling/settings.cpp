@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// displays settings menu
 int drawSettingsMenu()
 {
 	Font font = LoadFont("../assets/fonts/CONSOLA.ttf");

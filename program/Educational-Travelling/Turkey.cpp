@@ -5,7 +5,8 @@
 
 using namespace std;
 
-int turkeyQuest()
+// displays Turkey quest
+int drawTurkeyQuest()
 {
     string character = getCharacterFromSettings();
 
@@ -170,7 +171,7 @@ int turkeyQuest()
 
                 if (promptChoice == 1)
                 {
-                    turkeyQuest();
+                    drawTurkeyQuest();
                     break;
                 }
                 else if (promptChoice == 2)

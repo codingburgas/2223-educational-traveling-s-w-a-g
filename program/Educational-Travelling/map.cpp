@@ -14,6 +14,7 @@ struct COUNTRY_DATA {
     int (*quest)();
 };
 
+// turns a string into a Rectangle
 Rectangle convertStringToRect(string str)
 {
     float arr[4];
@@ -25,6 +26,7 @@ Rectangle convertStringToRect(string str)
     return Rectangle{ arr[0], arr[1], arr[2], arr[3] };
 }
 
+// displays end screen
 int drawEndScreen()
 {
     Texture2D endscreen = LoadTexture("../assets/menus/endscreen.png");
@@ -44,16 +46,17 @@ int drawEndScreen()
     return 1;
 }
 
+// displays map
 int drawMap()
 {
     SetMouseCursor(0);
 
     SetTargetFPS(60);
 
-    COUNTRY_DATA countries[8] = { {"rs", 57, serbiaQuest}, {"bg", 28, bulgariaQuest},
-                                  {"ro", 64, romaniaQuest}, {"hu", 40, hungaryCheckpoint},
-                                  {"tr", 25, turkeyQuest}, {"gr", 60, greeceQuest},
-                                  {"al", 27, albaniaQuest}, {"md", 36, moldovaCheckpoint} };
+    COUNTRY_DATA countries[8] = { {"rs", 57, drawSerbiaQuest}, {"bg", 28, drawBulgariaQuest},
+                                  {"ro", 64, drawRomaniaQuest}, {"hu", 40, drawHungaryCheckpoint},
+                                  {"tr", 25, drawTurkeyQuest}, {"gr", 60, drawGreeceQuest},
+                                  {"al", 27, drawAlbaniaQuest}, {"md", 36, drawMoldovaCheckpoint} };
 
     Texture2D mapFrames[4] = { LoadTexture("../assets/maps/frame_1.png"), LoadTexture("../assets/maps/frame_2.png"),
                                LoadTexture("../assets/maps/frame_3.png"), LoadTexture("../assets/maps/frame_4.png") };

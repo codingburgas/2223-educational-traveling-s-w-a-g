@@ -6,7 +6,8 @@
 
 using namespace std;
 
-int romaniaQuest()
+// displays Romania quest
+int drawRomaniaQuest()
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
@@ -155,7 +156,7 @@ int romaniaQuest()
 
             if (promptChoice == 1)
             {
-                romaniaQuest();
+                drawRomaniaQuest();
             }
             else if (promptChoice == 2)
             {
