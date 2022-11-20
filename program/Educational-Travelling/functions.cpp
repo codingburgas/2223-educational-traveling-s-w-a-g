@@ -114,7 +114,7 @@ void drawWinPrompt(const char* message[3], int *promptChoice)
     }
 }
 
-void ComingSoonPrompt(Texture2D background, int* promptChoice, Color color)
+void drawComingSoonPrompt(Texture2D background, int* promptChoice, Color color, bool isBulgaria)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
@@ -124,10 +124,11 @@ void ComingSoonPrompt(Texture2D background, int* promptChoice, Color color)
     {
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
-        DrawTexture(background, 0, 0, WHITE);
+        ClearBackground(BLACK);
+        if (!isBulgaria)
+            DrawTexture(background, 0, 0, WHITE);
 
-        const char* message = "Comming soon...";
+        const char* message = "Coming soon...";
 
         DrawTextEx(font, message, { (SCREEN_WIDTH - MeasureTextEx(font, message, 30, 5).x) / 2, 200 }, 30, 5, color);
 

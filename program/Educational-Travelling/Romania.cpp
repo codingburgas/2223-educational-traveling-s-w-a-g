@@ -8,6 +8,8 @@ using namespace std;
 
 int romaniaQuest()
 {
+    Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
+
     string character = getCharacterFromSettings();
 
     Texture2D background = LoadTexture("../assets/quests/Romania/ro_bg.png");
@@ -97,6 +99,9 @@ int romaniaQuest()
             ClearBackground(RAYWHITE);
 
             DrawTexture(background, -620, 0, WHITE);
+
+            DrawRectangleLinesEx({ 50, 50, 75, 50 }, 5, WHITE);
+            DrawTextEx(font, "<<", { 75, 50 }, 30, 5, WHITE);
         }
 
         if (timer < 1.0f)

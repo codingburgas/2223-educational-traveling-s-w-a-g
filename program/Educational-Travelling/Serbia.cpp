@@ -6,7 +6,6 @@
 int serbiaQuest()
 {
     Texture2D background = LoadTexture("../assets/quests/Serbia/Serbia_Background.png");
-    Color color = BLACK;
 
     background.height *= 1.5;
     background.width *= 1.5;
@@ -16,10 +15,11 @@ int serbiaQuest()
         BeginDrawing();
 
         int promptChoice = 0;
-        ComingSoonPrompt(background, &promptChoice, color);
+        drawComingSoonPrompt(background, &promptChoice, BLACK, 0);
 
-        drawMap();
-
+        if (promptChoice == 1)
+            drawMap();
+        
         break;
 
         EndDrawing();
