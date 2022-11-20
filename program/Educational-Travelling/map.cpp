@@ -90,6 +90,7 @@ int drawMap()
 
     bool breakInner = 0;
     bool breakOuter = 0;
+    bool backButtonPress = 0;
 
     while (!WindowShouldClose())
     {
@@ -165,7 +166,11 @@ int drawMap()
 
             if (CheckCollisionPointRec(GetMousePosition(), { 50, 728, 200, 50 }))
             {
-                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+                {
+                    backButtonPress = 1;
+                }
+                if (IsMouseButtonUp(MOUSE_BUTTON_LEFT) and backButtonPress)
                 {
                     startProgram();
                     break;
