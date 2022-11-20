@@ -4,7 +4,7 @@
 #include <fstream>
 
 // loads Albania quest
-int drawAlbaniaQuest()
+int drawAlbaniaQuest(bool returned)
 {
     Texture2D background = LoadTexture("../assets/quests/Albania/Albania_Background.png");
 

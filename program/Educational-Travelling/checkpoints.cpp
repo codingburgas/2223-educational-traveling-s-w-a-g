@@ -105,7 +105,7 @@ int drawCheckpoint(const char* message[], const char* newLines[], int size, int 
 }
 
 // displays Hungary checkpoint
-int drawHungaryCheckpoint()
+int drawHungaryCheckpoint(bool returned)
 {
 	const char* message[6] = { "You go to Budapest...", "You visit 3 of the", "You try Rudas Baths...", "Next you go to Gellert Thermal Bath...", "Finally you go to Szechenyi Thermal Bath...", "CHECKPOINT UNLOCKED !!!" };
 	const char* newLines[6] = { "", "most popular thermal baths...", "It feels great, so you give it 4 stars.", "It feels alright, so you give it 3 stars.", "it feels amazing! You give it 5 stars!", "" };
@@ -115,7 +115,7 @@ int drawHungaryCheckpoint()
 }
 
 // displays Moldova checkpoint
-int drawMoldovaCheckpoint()
+int drawMoldovaCheckpoint(bool returned)
 {
 	const char* message[8] = { "You enter a bar in Moldova...", "You get to rate 3 of their", "You try Circova...", "Now you try Vineria Din Vale from", "It's time for Tomai from 2016...Oh my,", "After you rate all the wines the barman", "He gives you a place to stay the night.", "CHECKPOINT UNLOCKED !!!" };
 	const char* newLines[8] = { "", "most popular wines...", "It tastes so good you give it a 9 !!", "2019... It's pretty fine - '8' you say.", "it tastes amazing!!You give it a 10!!", "wants to thank you for your kindness.", "", "" };

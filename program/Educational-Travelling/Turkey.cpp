@@ -6,7 +6,7 @@
 using namespace std;
 
 // displays Turkey quest
-int drawTurkeyQuest()
+int drawTurkeyQuest(bool returned)
 {
     string character = getCharacterFromSettings();
 
@@ -118,7 +118,7 @@ int drawTurkeyQuest()
 
             BeginDrawing();
 
-            if (started == false)
+            if (!started and !returned)
             {
                 int promptChoice = 0;
                 const char* message[3] = { "You smoke nargile in a club...", "You end up smoking too much...", "You end up passing out..." };
@@ -171,7 +171,7 @@ int drawTurkeyQuest()
 
                 if (promptChoice == 1)
                 {
-                    drawTurkeyQuest();
+                    drawTurkeyQuest(1);
                     break;
                 }
                 else if (promptChoice == 2)

@@ -7,7 +7,7 @@
 using namespace std;
 
 // displays Romania quest
-int drawRomaniaQuest()
+int drawRomaniaQuest(bool returned)
 {
     Font font = LoadFont("../assets/fonts/CONSOLA.ttf");
 
@@ -20,7 +20,6 @@ int drawRomaniaQuest()
     Texture2D walkL = LoadTexture(("../assets/characters/" + character + "_walk_left.png").c_str());
 
     Texture2D vampire = LoadTexture("../assets/quests/Romania/vampire.png");
-    Texture2D shadow = LoadTexture("../assets/quests/Romania/shadow.png");
 
     background.width *= 1.68;
     background.height *= 1.68;
@@ -35,8 +34,6 @@ int drawRomaniaQuest()
 
     vampire.width *= 0.6;
     vampire.height *= 0.6;
-    shadow.width *= 0.6;
-    shadow.height *= 0.6;
 
     float timer = 0.0f;
     float gameTime = 0.0f;
@@ -92,7 +89,7 @@ int drawRomaniaQuest()
 
         BeginDrawing();
 
-        if (started == false)
+        if (!started and !returned)
         {
             int promptChoice = 0;
             const char* message[3] = { "You get lost in a forest", "during a full moon...", "Something is moving in the shadows..." };
@@ -121,8 +118,8 @@ int drawRomaniaQuest()
 
         if (timer < 1.0f)
         {
-            DrawTexture(shadow, vampireXPos, 500, GRAY);
-        } // BLACK?
+            DrawTexture(vampire, vampireXPos, 500, BLACK);
+        }
         else if (timer < 2.0f)
         {
             if (CheckCollisionRecs({ playerXPos, 600, float(player.width),float(player.height) },
@@ -156,7 +153,7 @@ int drawRomaniaQuest()
 
             if (promptChoice == 1)
             {
-                drawRomaniaQuest();
+                drawRomaniaQuest(1);
             }
             else if (promptChoice == 2)
             {

@@ -7,7 +7,7 @@
 using namespace std;
 
 // displays Greece quest
-int drawGreeceQuest()
+int drawGreeceQuest(bool returned)
 {
     string character = getCharacterFromSettings();
 
@@ -89,7 +89,7 @@ int drawGreeceQuest()
 
             BeginDrawing();
 
-            if (started == false)
+            if (!started and !returned)
             {
                 int promptChoice = 0;
                 const char* message[3] = { "You go to a bar in Athens...", "The other people look very excited...", "A sirtaki event starts..." };
@@ -154,7 +154,7 @@ int drawGreeceQuest()
 
                 if (promptChoice == 1)
                 {
-                    drawGreeceQuest();
+                    drawGreeceQuest(1);
                 }
                 else if (promptChoice == 2)
                 {

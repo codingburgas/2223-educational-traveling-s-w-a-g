@@ -4,7 +4,7 @@
 #include <fstream>
 
 // displays Serbia quest
-int drawSerbiaQuest()
+int drawSerbiaQuest(bool returned)
 {
     Texture2D background = LoadTexture("../assets/quests/Serbia/Serbia_Background.png");
 

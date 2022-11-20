@@ -11,7 +11,7 @@ using namespace std;
 struct COUNTRY_DATA {
     string code;
     int rectCount;
-    int (*quest)();
+    int (*quest)(bool returned);
 };
 
 // turns a string into a Rectangle
@@ -126,7 +126,7 @@ int drawMap()
                         hover = 1;
                         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
                         {
-                            if (countries[i].quest() == 1)
+                            if (countries[i].quest(0) == 1)
                             {
                                 breakInner = 1;
                             }

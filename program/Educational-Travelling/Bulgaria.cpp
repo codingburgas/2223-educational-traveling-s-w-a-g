@@ -84,7 +84,7 @@ int drawMentorText(Texture2D background, Texture2D mentor, const char* message[]
 }
 
 // loads Bulgaria quest
-int drawBulgariaQuest()
+int drawBulgariaQuest(bool returned)
 {
     Texture2D background = LoadTexture("../assets/quests/Bulgaria/bulgaria_background.png");
     Texture2D mentor = LoadTexture("../assets/quests/Bulgaria/mentor.png");
