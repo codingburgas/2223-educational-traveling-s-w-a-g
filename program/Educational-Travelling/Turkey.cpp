@@ -151,12 +151,12 @@ int drawTurkeyQuest(bool returned)
                 ClearBackground(RAYWHITE);
 
                 DrawTexture(background, 0, 0, WHITE);
-                DrawTexture(sand, 0, sandY, WHITE);
                 DrawTexture(cloud, 520, 615, WHITE);
                 DrawTexture(cloud, 180, 455, WHITE);
                 DrawTexture(cloud, 520, 290, WHITE);
                 DrawTexture(cloud, 180, 130, WHITE);
                 DrawTexture(bed, 250, 120, WHITE);
+                DrawTexture(sand, 0, sandY, WHITE);
             }
 
             if (loss == 0)
