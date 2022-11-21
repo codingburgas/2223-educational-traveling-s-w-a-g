@@ -209,10 +209,6 @@ int drawTurkeyQuest(bool returned)
                     break;
                 }
             }
-
-            DrawText(to_string(GetMousePosition().x).c_str(), 20, 20, 20, WHITE);
-            DrawText(to_string(GetMousePosition().y).c_str(), 20, 40, 20, WHITE);
-
             EndDrawing();
         }
     }
